@@ -53,8 +53,10 @@ public class PlayerController : MonoBehaviour {
             P2.velocity += Vector3.up * (jumpVelocity - P2.velocity.y);
 
         // Righting moment
-        P1.AddTorque (restoringMoment * P1.mass * Vector3.forward * Vector3.SignedAngle (P1.transform.up, Vector3.up, Vector3.forward));
-        P2.AddTorque (restoringMoment * P2.mass * Vector3.forward * Vector3.SignedAngle (P2.transform.up, Vector3.up, Vector3.forward));
+        if(groundContact(P1))
+            P1.AddTorque (restoringMoment * P1.mass * Vector3.forward * Vector3.SignedAngle (P1.transform.up, Vector3.up, Vector3.forward));
+        if (groundContact (P2))
+            P2.AddTorque (restoringMoment * P2.mass * Vector3.forward * Vector3.SignedAngle (P2.transform.up, Vector3.up, Vector3.forward));
 
         // Ground friction
         print (ha1 + "    " + ha2);
@@ -70,6 +72,10 @@ public class PlayerController : MonoBehaviour {
 
     bool canJump (Rigidbody g) {
         return Physics.Raycast (g.transform.position, -g.transform.up, jumpMaxGroundDist, raycastLayerMask);
+    }
+
+    bool groundContact (Rigidbody g) {
+        return Physics.Raycast (g.transform.position, Vector3.down, jumpMaxGroundDist, raycastLayerMask);
     }
 
     bool clearLeft (Rigidbody g) {
