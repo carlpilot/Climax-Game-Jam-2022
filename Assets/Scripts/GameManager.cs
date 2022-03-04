@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     bool hasLost = false;
 
     private void Update () {
-        if(health.health1 <= 0 || health.health2 <= 0 || Player1.position.y < voidCutoff || Player2.position.y < voidCutoff) {
+        if( health.health1 <= 0 || health.health2 <= 0 ||
+            Player1.position.y < voidCutoff || Player2.position.y < voidCutoff) {
             Lose ();
         }
     }
@@ -25,5 +26,6 @@ public class GameManager : MonoBehaviour
         hasLost = true;
         gameOverScreen.SetActive (true);
         gameOverScreen.GetComponent<GameOverScreen> ().Trigger ();
+        FindObjectOfType<Timer> ().StopTime ();
     }
 }
