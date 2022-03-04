@@ -25,11 +25,11 @@ public class ChainGenerator : MonoBehaviour
           currentLink = Instantiate(endLinkPrefab);
         }
 
-        /*if (i == 0 || i == chainLength - 1){
+        if (i == 0 || i == chainLength - 1){
           foreach (Collider col in currentLink.GetComponentsInChildren<Collider>()){
             col.enabled = false;
           }
-        }*/
+        }
         currentLink.transform.position = pos;
         pos += add;
         currentLink.GetComponent<ConfigurableJoint>().connectedBody = prevLink.GetComponent<Rigidbody>();
