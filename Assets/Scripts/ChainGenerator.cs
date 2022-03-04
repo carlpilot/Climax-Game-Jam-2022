@@ -32,7 +32,7 @@ public class ChainGenerator : MonoBehaviour
         }*/
         currentLink.transform.position = pos;
         pos += add;
-        currentLink.GetComponent<HingeJoint>().connectedBody = prevLink.GetComponent<Rigidbody>();
+        currentLink.GetComponent<ConfigurableJoint>().connectedBody = prevLink.GetComponent<Rigidbody>();
         //currentLink.GetComponent<Rigidbody>().isKinematic = true;
         //currentLink.transform.Rotate(0, 0, -90);
         if (a){
@@ -43,7 +43,7 @@ public class ChainGenerator : MonoBehaviour
         prevLink = currentLink;
         a = !a;
       }
-      currentLink.GetComponents<HingeJoint>()[1].connectedBody = B;
+      currentLink.GetComponents<ConfigurableJoint>()[1].connectedBody = B;
     }
 
     // Update is called once per frame
