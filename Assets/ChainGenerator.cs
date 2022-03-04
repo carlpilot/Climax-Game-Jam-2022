@@ -16,6 +16,7 @@ public class ChainGenerator : MonoBehaviour
       var prevLink = A.gameObject;
       var pos = A.gameObject.transform.position;
       var add = (B.transform.position - A.transform.position) / (float)(chainLength);
+      var dir = Quaternion.LookRotation(B.transform.position - A.transform.position);
       bool a = false;
       for (int i = 0; i < chainLength; i++){
         if (i != chainLength - 1) {
@@ -23,13 +24,20 @@ public class ChainGenerator : MonoBehaviour
         } else{
           currentLink = Instantiate(endLinkPrefab);
         }
+
+        /*if (i == 0 || i == chainLength - 1){
+          foreach (Collider col in currentLink.GetComponentsInChildren<Collider>()){
+            col.enabled = false;
+          }
+        }*/
         currentLink.transform.position = pos;
         pos += add;
         currentLink.GetComponent<HingeJoint>().connectedBody = prevLink.GetComponent<Rigidbody>();
         //currentLink.GetComponent<Rigidbody>().isKinematic = true;
+        //currentLink.transform.Rotate(0, 0, -90);
         if (a){
           foreach (Transform child in currentLink.transform){
-            child.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+            child.localRotation = Quaternion.Euler(new Vector3(0, 90, 0));
           }
         }
         prevLink = currentLink;
