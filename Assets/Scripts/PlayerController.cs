@@ -18,29 +18,35 @@ public class PlayerController : MonoBehaviour {
 
     public Rigidbody P1, P2;
 
-    public float maxSpeed = 1.0f; // m/s
-    public float acceleration = 1.0f; // m/s^2
+    public float maxSpeed = 3.0f; // m/s
+    public float acceleration = 5.0f; // m/s^2
 
-    public float jumpVelocity = 1.0f; // initial, m/s upwards
-    public float jumpMaxGroundDist = 1.5f; // Maximum distance from player origin to ground to jump
+    public float jumpVelocity = 6.0f; // initial, m/s upwards
+    public float jumpMaxGroundDist = 1.25f; // Maximum distance from player origin to ground to jump
 
     public float groundFriction = 1.0f; // Unused for now
+
+    public bool j1, j2;
 
     private void Start () {
 
     }
 
-    private void Update () {
+    private void FixedUpdate () {
+        j1 = canJump (P1); j2 = canJump (P2);
+
         Vector3 ha1 = Vector3.right * horizontal (1) * Mathf.Clamp01 (maxSpeed - P1.velocity.magnitude) * acceleration;
         Vector3 ha2 = Vector3.right * horizontal (2) * Mathf.Clamp01 (maxSpeed - P2.velocity.magnitude) * acceleration;
 
-        P1.AddForce (ha1 * P1.mass);
-        P2.AddForce (ha2 * P2.mass);
+        if (Input.GetKey (Key_P1_Jump) && canJump (P1))
+            P1.velocity += Vector3.up * (jumpVelocity - P1.velocity.y);
+        if (Input.GetKey (Key_P2_Jump) && canJump (P2))
+            P2.velocity += Vector3.up * (jumpVelocity - P2.velocity.y);
 
-        if (Input.GetKeyDown (Key_P1_Jump) && canJump (P1))
-            P1.velocity += Vector3.up * jumpVelocity;
-        if (Input.GetKeyDown (Key_P2_Jump) && canJump (P2))
-            P2.velocity += Vector3.up * jumpVelocity;
+        //P1.AddForce (ha1 * P1.mass);
+        //P2.AddForce (ha2 * P2.mass);
+        P1.velocity += ha1 * Time.fixedDeltaTime;
+        P2.velocity += ha2 * Time.fixedDeltaTime;
     }
 
     private bool canJump (Rigidbody g) {
