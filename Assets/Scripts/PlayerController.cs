@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour {
 
     public float horizontalDeconflictionDistance = 0.6f; // don't move horizontally when obstacle this close or closer
 
+    public LayerMask raycastLayerMask;
+
     public float jumpVelocity = 6.0f; // initial, m/s upwards
     public float jumpMaxGroundDist = 1.25f; // Maximum distance from player origin to ground to jump
 
@@ -53,18 +55,22 @@ public class PlayerController : MonoBehaviour {
         // Righting moment
         P1.AddTorque (restoringMoment * P1.mass * Vector3.forward * Vector3.SignedAngle (P1.transform.up, Vector3.up, Vector3.forward));
         P2.AddTorque (restoringMoment * P2.mass * Vector3.forward * Vector3.SignedAngle (P2.transform.up, Vector3.up, Vector3.forward));
+
+        // Ground friction
+        float modfric1 = groundFriction * (Mathf.Abs(ha1.x) > 0 ? 1 : 0);
+        float modfric2 = groundFriction * (Mathf.Abs (ha2.x) > 0 ? 1 : 0);
     }
 
     bool canJump (Rigidbody g) {
-        return Physics.Raycast (g.transform.position, -g.transform.up, jumpMaxGroundDist);
+        return Physics.Raycast (g.transform.position, -g.transform.up, jumpMaxGroundDist, raycastLayerMask);
     }
 
     bool clearLeft (Rigidbody g) {
-        return !Physics.Raycast (g.transform.position, -g.transform.right, horizontalDeconflictionDistance);
+        return !Physics.Raycast (g.transform.position, -g.transform.right, horizontalDeconflictionDistance, raycastLayerMask);
     }
 
     bool clearRight (Rigidbody g) {
-        return !Physics.Raycast (g.transform.position, g.transform.right, horizontalDeconflictionDistance);
+        return !Physics.Raycast (g.transform.position, g.transform.right, horizontalDeconflictionDistance, raycastLayerMask);
     }
 
     // 1 = right, -1 = left, 0 = none
