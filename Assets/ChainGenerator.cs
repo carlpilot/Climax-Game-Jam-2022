@@ -16,6 +16,7 @@ public class ChainGenerator : MonoBehaviour
       var prevLink = A.gameObject;
       var pos = A.gameObject.transform.position;
       var add = (B.transform.position - A.transform.position) / (float)(chainLength);
+      bool a = false;
       for (int i = 0; i < chainLength; i++){
         if (i != chainLength - 1) {
           currentLink = Instantiate(linkPrefab);
@@ -26,7 +27,13 @@ public class ChainGenerator : MonoBehaviour
         pos += add;
         currentLink.GetComponent<HingeJoint>().connectedBody = prevLink.GetComponent<Rigidbody>();
         //currentLink.GetComponent<Rigidbody>().isKinematic = true;
+        if (a){
+          foreach (Transform child in currentLink.transform){
+            child.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+          }
+        }
         prevLink = currentLink;
+        a = !a;
       }
       currentLink.GetComponents<HingeJoint>()[1].connectedBody = B;
     }
