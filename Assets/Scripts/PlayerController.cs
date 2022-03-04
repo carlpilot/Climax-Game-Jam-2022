@@ -21,36 +21,50 @@ public class PlayerController : MonoBehaviour {
     public float maxSpeed = 3.0f; // m/s
     public float acceleration = 5.0f; // m/s^2
 
+    public float horizontalDeconflictionDistance = 0.6f; // don't move horizontally when obstacle this close or closer
+
     public float jumpVelocity = 6.0f; // initial, m/s upwards
     public float jumpMaxGroundDist = 1.25f; // Maximum distance from player origin to ground to jump
 
     public float groundFriction = 1.0f; // Unused for now
 
-    public bool j1, j2;
+    public float restoringMoment = 1.0f; // Torque keeping player upright
 
     private void Start () {
 
     }
 
     private void FixedUpdate () {
-        j1 = canJump (P1); j2 = canJump (P2);
 
+        // Horizontal motion
         Vector3 ha1 = Vector3.right * horizontal (1) * Mathf.Clamp01 (maxSpeed - P1.velocity.magnitude) * acceleration;
         Vector3 ha2 = Vector3.right * horizontal (2) * Mathf.Clamp01 (maxSpeed - P2.velocity.magnitude) * acceleration;
+        if(clearLeft(P1) && ha1.x < 0 || clearRight(P1) && ha1.x > 0)
+            P1.velocity += ha1 * Time.fixedDeltaTime;
+        if (clearLeft (P2) && ha2.x < 0 || clearRight (P2) && ha2.x > 0)
+            P2.velocity += ha2 * Time.fixedDeltaTime;
 
+        // Vertical motion
         if (Input.GetKey (Key_P1_Jump) && canJump (P1))
             P1.velocity += Vector3.up * (jumpVelocity - P1.velocity.y);
         if (Input.GetKey (Key_P2_Jump) && canJump (P2))
             P2.velocity += Vector3.up * (jumpVelocity - P2.velocity.y);
 
-        //P1.AddForce (ha1 * P1.mass);
-        //P2.AddForce (ha2 * P2.mass);
-        P1.velocity += ha1 * Time.fixedDeltaTime;
-        P2.velocity += ha2 * Time.fixedDeltaTime;
+        // Righting moment
+        P1.AddTorque (restoringMoment * P1.mass * Vector3.forward * Vector3.SignedAngle (P1.transform.up, Vector3.up, Vector3.forward));
+        P2.AddTorque (restoringMoment * P2.mass * Vector3.forward * Vector3.SignedAngle (P2.transform.up, Vector3.up, Vector3.forward));
     }
 
-    private bool canJump (Rigidbody g) {
+    bool canJump (Rigidbody g) {
         return Physics.Raycast (g.transform.position, -g.transform.up, jumpMaxGroundDist);
+    }
+
+    bool clearLeft (Rigidbody g) {
+        return !Physics.Raycast (g.transform.position, -g.transform.right, horizontalDeconflictionDistance);
+    }
+
+    bool clearRight (Rigidbody g) {
+        return !Physics.Raycast (g.transform.position, g.transform.right, horizontalDeconflictionDistance);
     }
 
     // 1 = right, -1 = left, 0 = none

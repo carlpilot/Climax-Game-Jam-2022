@@ -472,11 +472,11 @@ MonoBehaviour:
   P2: {fileID: 1662597652}
   maxSpeed: 3
   acceleration: 6
+  horizontalDeconflictionDistance: 0.6
   jumpVelocity: 6
   jumpMaxGroundDist: 1.25
   groundFriction: 1
-  j1: 0
-  j2: 0
+  restoringMoment: 3
 --- !u!1 &673313333
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,11 +964,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 50
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 120
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!1 &1694762579
 GameObject:
@@ -1314,11 +1314,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 50
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 120
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!1 &2079640774
 GameObject:
