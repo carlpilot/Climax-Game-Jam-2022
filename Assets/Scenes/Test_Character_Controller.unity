@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802917, g: 0.22572428, b: 0.30693048, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -544,7 +544,7 @@ MonoBehaviour:
   P1: {fileID: 2004411811}
   P2: {fileID: 1662597652}
   maxSpeed: 3
-  acceleration: 6
+  acceleration: 10
   horizontalDeconflictionDistance: 0.6
   raycastLayerMask:
     serializedVersion: 2
@@ -723,7 +723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   linkPrefab: {fileID: 9126323705594179840, guid: c120f33bf0385e7a79d5ef58def578ce, type: 3}
   endLinkPrefab: {fileID: 8713027989147774864, guid: a8d0f76d62e3e1eb6acebc46192e89ef, type: 3}
-  chainLength: 30
+  chainLength: 20
   A: {fileID: 2004411811}
   B: {fileID: 1662597652}
 --- !u!4 &805463993
@@ -1547,7 +1547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1797558288
 Transform:
   m_ObjectHideFlags: 0
