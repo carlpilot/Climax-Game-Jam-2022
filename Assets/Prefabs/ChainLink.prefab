@@ -178,7 +178,7 @@ HingeJoint:
     max: 180
     bounciness: 0
     bounceMinVelocity: 0.2
-    contactDistance: 0
+    contactDistance: 1
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
