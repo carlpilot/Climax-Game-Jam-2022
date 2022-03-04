@@ -182,3 +182,21 @@ Received Import Request.
   path: Assets/UniversalRenderPipelineGlobalSettings.asset
   artifactKey: Guid(5b522d7ea0d48ad6b9648ff0923948e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/UniversalRenderPipelineGlobalSettings.asset using Guid(5b522d7ea0d48ad6b9648ff0923948e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f46164b5c2e9f54cf066896ad958f36b') in 0.041839 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 221.057498 seconds.
+  path: Assets/Materials
+  artifactKey: Guid(d0234ba368eeec9418390da711bfdad0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials using Guid(d0234ba368eeec9418390da711bfdad0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22697197e1b26f0cedd0ba13d55cf5e3') in 0.001285 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.014149 seconds.
+  path: Assets/Materials/PlainBlue.mat
+  artifactKey: Guid(a9fcfc10e6a43d043b7414783c232c97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/PlainBlue.mat using Guid(a9fcfc10e6a43d043b7414783c232c97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb285ae5c589c43d5b4ef43579b347fe') in 1.155104 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000080 seconds.
+  path: Assets/Materials/PlainRed.mat
+  artifactKey: Guid(62b35be1c166a7d4baef20c46f539b82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/PlainRed.mat using Guid(62b35be1c166a7d4baef20c46f539b82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e03cdf7eac7d808a71dad618f5e0a77f') in 0.018085 seconds 
