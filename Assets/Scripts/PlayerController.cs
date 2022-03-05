@@ -39,6 +39,10 @@ public class PlayerController : MonoBehaviour {
     public float restoringMoment = 1.0f; // Torque keeping player upright
     public float basicRestoringMoment = 0.1f; // always on
 
+    [Header ("Crouching")]
+    public float crouchFrictionFactor = 10.0f;
+    public float crouchGravityFactor = 1.5f;
+
     [Header ("Powerup Effects")]
     public float SpeedMultiplierP1 = 1.0f;
     public float SpeedMultiplierP2 = 1.0f;
@@ -68,6 +72,12 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKey (Key_P2_Jump) && canJump (P2))
             P2.velocity += Vector3.up * (jumpVelocity - P2.velocity.y);
 
+        // Crouch gravity
+        if (Input.GetKey (Key_P1_Crouch))
+            P1.AddForce (Vector3.up * P1.mass * -9.81f * (crouchGravityFactor - 1.0f));
+        if (Input.GetKey (Key_P2_Crouch))
+            P2.AddForce (Vector3.up * P2.mass * -9.81f * (crouchGravityFactor - 1.0f));
+
         // Righting moment
         if (groundContact(P1))
             P1.AddTorque (restoringMoment * P1.mass * Vector3.forward * Vector3.SignedAngle (P1.transform.up, Vector3.up, Vector3.forward));
@@ -77,8 +87,8 @@ public class PlayerController : MonoBehaviour {
         P2.AddTorque (basicRestoringMoment * P2.mass * Vector3.forward * Vector3.SignedAngle (P2.transform.up, Vector3.up, Vector3.forward));
 
         // Ground friction
-        float modfric1 = groundFriction * (Mathf.Abs(ha1.x) > 0.05f ? 0 : 1);
-        float modfric2 = groundFriction * (Mathf.Abs (ha2.x) > 0.05f ? 0 : 1);
+        float modfric1 = groundFriction * (Mathf.Abs (ha1.x) > 0.05f ? 0 : 1) * (Input.GetKey (Key_P1_Crouch) ? crouchFrictionFactor : 1.0f);
+        float modfric2 = groundFriction * (Mathf.Abs (ha2.x) > 0.05f ? 0 : 1) * (Input.GetKey (Key_P2_Crouch) ? crouchFrictionFactor : 1.0f);
         P1.GetComponent<Collider> ().material.staticFriction = modfric1;
         P1.GetComponent<Collider> ().material.dynamicFriction = modfric1;
         P2.GetComponent<Collider> ().material.staticFriction = modfric2;
