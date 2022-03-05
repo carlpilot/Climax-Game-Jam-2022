@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour {
     public KeyCode Key_P2_Right = KeyCode.L;
     public KeyCode Key_P2_Crouch = KeyCode.K;
     #endregion
+    [Header ("General Controls")]
+    public KeyCode Key_Switch_Powerups = KeyCode.Space;
 
     [Header ("Players")]
     public Rigidbody P1;
@@ -57,8 +59,8 @@ public class PlayerController : MonoBehaviour {
     private void FixedUpdate () {
 
         // Horizontal motion
-        Vector3 ha1 = Vector3.right * horizontal (1) * Mathf.Clamp01 (maxSpeed - P1.velocity.magnitude) * acceleration;
-        Vector3 ha2 = Vector3.right * horizontal (2) * Mathf.Clamp01 (maxSpeed - P2.velocity.magnitude) * acceleration;
+        Vector3 ha1 = Vector3.right * horizontal (1) * Mathf.Clamp01 (maxSpeed * SpeedBoostP1 - P1.velocity.magnitude) * acceleration;
+        Vector3 ha2 = Vector3.right * horizontal (2) * Mathf.Clamp01 (maxSpeed * SpeedBoostP2 - P2.velocity.magnitude) * acceleration;
         if (clearLeft (P1) && ha1.x < 0 || clearRight (P1) && ha1.x > 0) {
             P1.velocity += ha1 * Time.fixedDeltaTime;
             facing1 = ha1.x > 0 ? 1 : -1;
@@ -111,6 +113,16 @@ public class PlayerController : MonoBehaviour {
         Quaternion p2rot = Quaternion.Slerp (PlayerModel2.localRotation, targetRotation2, 0.1f);
         PlayerModel1.localRotation = p1rot;
         PlayerModel2.localRotation = p2rot;
+
+        // Powerup switching
+        if(Input.GetKeyDown(Key_Switch_Powerups)) {
+            float temp_sb1 = SpeedBoostP1;
+            float temp_jb1 = JumpBoostP1;
+            SpeedBoostP1 = SpeedBoostP2;
+            JumpBoostP1 = JumpBoostP2;
+            SpeedBoostP2 = temp_sb1;
+            JumpBoostP2 = temp_jb1;
+        }
     }
 
     bool canJump (Rigidbody g) {
