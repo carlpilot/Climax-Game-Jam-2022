@@ -93,7 +93,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 71.1
   m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -301,7 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 933681191779176261}
   - component: {fileID: 933681191779176262}
-  - component: {fileID: 933681191779176263}
+  - component: {fileID: 2097849054517413091}
   - component: {fileID: 8213290861364107789}
   m_Layer: 5
   m_Name: Level Icon
@@ -338,7 +338,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933681191779176258}
   m_CullTransparentMesh: 1
---- !u!114 &933681191779176263
+--- !u!114 &2097849054517413091
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 933681191779176258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -358,16 +358,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!114 &8213290861364107789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,9 +550,9 @@ GameObject:
   m_Component:
   - component: {fileID: 933681192361054746}
   - component: {fileID: 933681192361054748}
-  - component: {fileID: 933681192361054749}
   - component: {fileID: 9149724593084974740}
   - component: {fileID: 3828145539537634599}
+  - component: {fileID: 4905023223486727330}
   m_Layer: 5
   m_Name: Level
   m_TagString: Untagged
@@ -595,36 +592,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933681192361054747}
   m_CullTransparentMesh: 1
---- !u!114 &933681192361054749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933681192361054747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.039215688}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &9149724593084974740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,6 +636,37 @@ MonoBehaviour:
   - {fileID: 7538667214002660969}
   level: 1
   levelTitle: {fileID: 933681191257407257}
+  icon: {fileID: 2097849054517413091}
+--- !u!114 &4905023223486727330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933681192361054747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.05882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5432352075559960210
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,15 +803,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1596782363702094430, guid: 5dbdcc50fb0398d4bac621e062f7afa6, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 51.4
       objectReference: {fileID: 0}
     - target: {fileID: 2181250614434711849, guid: 5dbdcc50fb0398d4bac621e062f7afa6, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 29.35
       objectReference: {fileID: 0}
     - target: {fileID: 2705106048011844131, guid: 5dbdcc50fb0398d4bac621e062f7afa6, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 26.45
       objectReference: {fileID: 0}
     - target: {fileID: 5200630748156333956, guid: 5dbdcc50fb0398d4bac621e062f7afa6, type: 3}
       propertyPath: m_Name
@@ -942,15 +940,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1596782363702094430, guid: 5dbdcc50fb0398d4bac621e062f7afa6, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 51.4
       objectReference: {fileID: 0}
     - target: {fileID: 2181250614434711849, guid: 5dbdcc50fb0398d4bac621e062f7afa6, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 29.35
       objectReference: {fileID: 0}
     - target: {fileID: 2705106048011844131, guid: 5dbdcc50fb0398d4bac621e062f7afa6, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 26.45
       objectReference: {fileID: 0}
     - target: {fileID: 5200630748156333956, guid: 5dbdcc50fb0398d4bac621e062f7afa6, type: 3}
       propertyPath: m_Name
@@ -1079,15 +1077,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1596782363702094430, guid: 5dbdcc50fb0398d4bac621e062f7afa6, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 51.4
       objectReference: {fileID: 0}
     - target: {fileID: 2181250614434711849, guid: 5dbdcc50fb0398d4bac621e062f7afa6, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 29.35
       objectReference: {fileID: 0}
     - target: {fileID: 2705106048011844131, guid: 5dbdcc50fb0398d4bac621e062f7afa6, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 26.45
       objectReference: {fileID: 0}
     - target: {fileID: 5200630748156333956, guid: 5dbdcc50fb0398d4bac621e062f7afa6, type: 3}
       propertyPath: m_Name

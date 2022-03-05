@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 using TMPro;
 
 public class LevelProfile : MonoBehaviour
@@ -9,10 +10,15 @@ public class LevelProfile : MonoBehaviour
     public LeaderboardItem[] lbItems;
     public int level;
     public TMP_Text levelTitle;
+    public RawImage icon;
+
+    LevelSelect ls;
 
     private void Awake () {
+        ls = FindObjectOfType<LevelSelect> ();
         levelTitle.text = "Level " + level;
         StartCoroutine(LoadLeaderboard());
+        icon.texture = ls.icons[level - 1];
     }
 
     IEnumerator LoadLeaderboard () {
@@ -31,6 +37,6 @@ public class LevelProfile : MonoBehaviour
 
     public void GoToLevel () {
         print ("Going to level " + level);
-        FindObjectOfType<LevelSelect> ().SwitchScene (level);
+        ls.SwitchScene (level);
     }
 }
