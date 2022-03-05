@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
         Player2Mesh.material.color = colour2;
         Player1Torus.material.color = colour1 / 2;
         Player2Torus.material.color = colour2 / 2;
+
+        // REMOVE
+        Win ();
     }
 
     private void Update () {
@@ -37,6 +40,7 @@ public class GameManager : MonoBehaviour
         hasEnded = true;
         winScreen.gameObject.SetActive (true);
         winScreen.GetComponent<WinScreen> ().Trigger ();
+        getHighScores ();
     }
 
     public void Lose () {
@@ -51,7 +55,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void getHighScores() {
-        StartCoroutine(getHSHelper("http://dreamlo.com/lb/622358b4778d3c8cfc1502d1/quote-seconds-asc"));
+        StartCoroutine(getHSHelper("http://dreamlo.com/lb/622358b4778d3c8cfc1502d1/pipe-seconds-asc"));
     }
 
     public IEnumerator getHSHelper(string uri) {
@@ -82,7 +86,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void putHighScore(string username, float time) {
-        StartCoroutine(putHSHelper("http://dreamlo.com/lb/tP95lQz0CkyNk7cR_YPPuAkN7wCkOxIkCu7WjI8E345g/add/"+ username + "/" + time));
+        int timeMS = Mathf.FloorToInt (time * 1000);
+        int score = 10000000 - timeMS; // lower time = higher score
+        StartCoroutine(putHSHelper("http://dreamlo.com/lb/tP95lQz0CkyNk7cR_YPPuAkN7wCkOxIkCu7WjI8E345g/add/"+ username + "/" + score + "/" + timeMS));
     }
 
     public IEnumerator putHSHelper(string uri) {
