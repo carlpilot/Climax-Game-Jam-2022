@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     }
 
     public IEnumerator getHSHelper(string uri) {
-        var result = "";
+        //var result = "";
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             // Request and wait for the desired page.
@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
     }
 
     public IEnumerator putHSHelper(string uri) {
-        var result = "";
+        //var result = "";
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             // Request and wait for the desired page.
