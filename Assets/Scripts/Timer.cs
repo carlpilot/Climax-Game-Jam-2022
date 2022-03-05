@@ -30,11 +30,15 @@ public class Timer : MonoBehaviour
         counting = false;
     }
 
-    public void ToggleTimerExtended () {
+    public void ToggleTimerExtended () => ToggleTimerExtended (true);
+
+    public void ToggleTimerExtended (bool save) {
         isExtended = !isExtended;
-        PlayerPrefs.SetInt ("TimerExtended", isExtended ? 1 : 0);
+        if(save) PlayerPrefs.SetInt ("TimerExtended", isExtended ? 1 : 0);
         int sign = isExtended ? 1 : -1;
         TimerBackground.anchoredPosition += -Vector2.up * TimerBackground.rect.height * sign;
         TimerDropdownArrow.Rotate (0, 0, 180);
     }
+
+    public bool extended { get => isExtended; }
 }

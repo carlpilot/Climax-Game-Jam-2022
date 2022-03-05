@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
         hasLost = true;
         gameOverScreen.SetActive (true);
         gameOverScreen.GetComponent<GameOverScreen> ().Trigger ();
-        FindObjectOfType<Timer> ().StopTime ();
+        Timer t = FindObjectOfType<Timer> ();
+        t.StopTime ();
+        if(!t.extended) t.ToggleTimerExtended (false);
     }
 }

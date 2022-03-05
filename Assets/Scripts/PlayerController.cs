@@ -59,15 +59,12 @@ public class PlayerController : MonoBehaviour {
             P2.AddTorque (restoringMoment * P2.mass * Vector3.forward * Vector3.SignedAngle (P2.transform.up, Vector3.up, Vector3.forward));
 
         // Ground friction
-        print (ha1 + "    " + ha2);
         float modfric1 = groundFriction * (Mathf.Abs(ha1.x) > 0.05f ? 0 : 1);
         float modfric2 = groundFriction * (Mathf.Abs (ha2.x) > 0.05f ? 0 : 1);
         P1.GetComponent<Collider> ().material.staticFriction = modfric1;
         P1.GetComponent<Collider> ().material.dynamicFriction = modfric1;
         P2.GetComponent<Collider> ().material.staticFriction = modfric2;
         P2.GetComponent<Collider> ().material.dynamicFriction = modfric2;
-
-        print (P1.GetComponent<Collider> ().material.staticFriction + "     " + P2.GetComponent<Collider> ().material.staticFriction);
     }
 
     bool canJump (Rigidbody g) {
