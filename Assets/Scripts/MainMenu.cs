@@ -23,8 +23,10 @@ public class MainMenu : MonoBehaviour
     public Slider B2;
 
     public TMP_InputField usernameInput;
+    HealthBar hb;
 
     public void Start() {
+        hb = FindObjectOfType<HealthBar> ();
         var renderer1 = player1.GetComponentsInChildren<Renderer>()[1];
         var renderer2 = player2.GetComponentsInChildren<Renderer>()[1];
         var color1 = renderer1.material.color;
@@ -47,10 +49,14 @@ public class MainMenu : MonoBehaviour
         var renderer2 = player2.GetComponentsInChildren<Renderer>()[1];
         var ring1 = player1.GetComponentsInChildren<Renderer>()[3];
         var ring2 = player2.GetComponentsInChildren<Renderer>()[3];
-        renderer1.material.color = new Color(R1.value, G1.value, B1.value, 255);
-        renderer2.material.color = new Color(R2.value, G2.value, B2.value, 255);
-        ring1.material.color = new Color(R1.value / 2, G1.value / 2, B1.value / 2, 255);
-        ring2.material.color = new Color(R2.value / 2, G2.value / 2, B2.value / 2, 255);
+        Color colour1 = new Color (R1.value, G1.value, B1.value, 255); ;
+        Color colour2 = new Color (R2.value, G2.value, B2.value, 255);
+        renderer1.material.color = colour1;
+        renderer2.material.color = colour2;
+        ring1.material.color = colour1 / 2;
+        ring2.material.color = colour2 / 2;
+        hb.RH1.color = colour1; hb.RH2.color = colour1; hb.RH3.color = colour1;
+        hb.BH1.color = colour2; hb.BH2.color = colour2; hb.BH3.color = colour2;
     }
 
     public void playGame() {
@@ -75,6 +81,6 @@ public class MainMenu : MonoBehaviour
         return u.Length <= 25 ? u : GenerateUsername ();
     }
 
-    public void SaveUsername () => PlayerPrefs.SetString ("Username", usernameInput.text);
+    public void SaveUsername () => PlayerPrefs.SetString ("Username", usernameInput.text.ToUpper());
 
 }
