@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1802917, g: 0.22572428, b: 0.30693048, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1982,9 +1982,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1201712228}
     m_Modifications:
+    - target: {fileID: 1575315743737041619, guid: f537b102224faf143930785815fb0200, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575315743737041619, guid: f537b102224faf143930785815fb0200, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575315743737041619, guid: f537b102224faf143930785815fb0200, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 440
+      objectReference: {fileID: 0}
+    - target: {fileID: 2012761263765268649, guid: f537b102224faf143930785815fb0200, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4181597171934828835, guid: f537b102224faf143930785815fb0200, type: 3}
       propertyPath: m_Name
-      value: Hearts
+      value: Hearts and Timer
       objectReference: {fileID: 0}
     - target: {fileID: 4181597171934828860, guid: f537b102224faf143930785815fb0200, type: 3}
       propertyPath: m_Pivot.x
@@ -2221,6 +2237,22 @@ PrefabInstance:
     - target: {fileID: 4181597173887414543, guid: f537b102224faf143930785815fb0200, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269316490189908104, guid: f537b102224faf143930785815fb0200, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559534485303674669, guid: f537b102224faf143930785815fb0200, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101971649909060891, guid: f537b102224faf143930785815fb0200, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101971649909060891, guid: f537b102224faf143930785815fb0200, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f537b102224faf143930785815fb0200, type: 3}

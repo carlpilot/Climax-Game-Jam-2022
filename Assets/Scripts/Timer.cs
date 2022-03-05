@@ -6,9 +6,17 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class Timer : MonoBehaviour
 {
+    public RectTransform TimerBackground;
+    public RectTransform TimerDropdownArrow;
+
+    bool isExtended = true;
     bool counting = true;
 
     float count = 0;
+
+    private void Start () {
+        if (PlayerPrefs.GetInt ("TimerExtended") == 0) ToggleTimerExtended (); // retract timer if the playerprefs say so
+    }
 
     private void Update () {
         if(counting) count = Time.timeSinceLevelLoad;
@@ -21,4 +29,16 @@ public class Timer : MonoBehaviour
     public void StopTime() {
         counting = false;
     }
+
+    public void ToggleTimerExtended () => ToggleTimerExtended (true);
+
+    public void ToggleTimerExtended (bool save) {
+        isExtended = !isExtended;
+        if(save) PlayerPrefs.SetInt ("TimerExtended", isExtended ? 1 : 0);
+        int sign = isExtended ? 1 : -1;
+        TimerBackground.anchoredPosition += -Vector2.up * TimerBackground.rect.height * sign;
+        TimerDropdownArrow.Rotate (0, 0, 180);
+    }
+
+    public bool extended { get => isExtended; }
 }
