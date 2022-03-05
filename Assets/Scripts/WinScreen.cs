@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 public class WinScreen : MonoBehaviour
 {
 
+    public RectTransform scrollContent;
+    public GameObject leaderboardItemPrefab;
+    public LeaderboardItem thisScore;
+
     int level { get => SceneManager.GetActiveScene().buildIndex; }
 
     public void LoadLeaderboard (string highscores) {
