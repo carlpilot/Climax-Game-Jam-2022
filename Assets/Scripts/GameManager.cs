@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,13 +11,17 @@ public class GameManager : MonoBehaviour
     public MeshRenderer Player1Mesh, Player2Mesh, Player1Torus, Player2Torus;
 
     public WinScreen winScreen;
-    public GameObject gameOverScreen;
+    public GameOverScreen gameOverScreen;
 
     public float voidCutoff = -10f; // player dies below this level
 
+    Timer timer;
     bool hasEnded = false;
 
+    public static int level { get => SceneManager.GetActiveScene ().buildIndex; }
+
     private void Start () {
+        timer = FindObjectOfType<Timer> ();
         Color colour1 = new Color (PlayerPrefs.GetFloat ("R1"), PlayerPrefs.GetFloat ("G1"), PlayerPrefs.GetFloat ("B1"));
         Color colour2 = new Color (PlayerPrefs.GetFloat ("R2"), PlayerPrefs.GetFloat ("G2"), PlayerPrefs.GetFloat ("B2"));
         Player1Mesh.material.color = colour1;
@@ -37,25 +42,38 @@ public class GameManager : MonoBehaviour
         hasEnded = true;
         winScreen.gameObject.SetActive (true);
         winScreen.GetComponent<WinScreen> ().Trigger ();
+        //putHighScore (timer.time);
+        //getHighScores ();
+        putGetHighScores (timer.time);
+        EndGame ();
     }
 
     public void Lose () {
         if (hasEnded) return; // don't lose twice
         print ("Died");
         hasEnded = true;
-        gameOverScreen.SetActive (true);
+        gameOverScreen.gameObject.SetActive (true);
         gameOverScreen.GetComponent<GameOverScreen> ().Trigger ();
-        Timer t = FindObjectOfType<Timer> ();
-        t.StopTime ();
-        if(!t.extended) t.ToggleTimerExtended (false);
+        EndGame ();
     }
 
+    public void EndGame () {
+        timer.StopTime ();
+        if (!timer.extended) timer.ToggleTimerExtended (false);
+    }
+
+    public void NextLevel () => SceneManager.LoadScene (level + 1);
+
+    public void MainMenu () => SceneManager.LoadScene (0);
+
+    public void ReloadLevel () => gameOverScreen.RestartScene ();
+
     public void getHighScores() {
-        StartCoroutine(getHSHelper("http://dreamlo.com/lb/622358b4778d3c8cfc1502d1/quote-seconds-asc"));
+        StartCoroutine(getHSHelper("http://dreamlo.com/lb/622358b4778d3c8cfc1502d1/pipe-seconds-asc"));
     }
 
     public IEnumerator getHSHelper(string uri) {
-        var result = "";
+        //var result = "";
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             // Request and wait for the desired page.
@@ -81,12 +99,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void putHighScore(string username, float time) {
-        StartCoroutine(putHSHelper("http://dreamlo.com/lb/tP95lQz0CkyNk7cR_YPPuAkN7wCkOxIkCu7WjI8E345g/add/"+ username + "/" + time));
+    public void putHighScore(float time) {
+        int timeMS = Mathf.FloorToInt (time * 1000);
+        int score = 10000000 - timeMS; // lower time = higher score
+        StartCoroutine(putHSHelper("http://dreamlo.com/lb/tP95lQz0CkyNk7cR_YPPuAkN7wCkOxIkCu7WjI8E345g/add/"+ PlayerPrefs.GetString("Username") + "/" + score + "/" + timeMS));
     }
 
     public IEnumerator putHSHelper(string uri) {
-        var result = "";
+        //var result = "";
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             // Request and wait for the desired page.
@@ -108,6 +128,12 @@ public class GameManager : MonoBehaviour
                     break;
             }    
         }
+    }
+
+    public void putGetHighScores (float time) {
+        int timeMS = Mathf.FloorToInt (time * 1000);
+        int score = 10000000 - timeMS; // lower time = higher score
+        StartCoroutine (getHSHelper ("http://dreamlo.com/lb/tP95lQz0CkyNk7cR_YPPuAkN7wCkOxIkCu7WjI8E345g/add-pipe-seconds-asc/" + PlayerPrefs.GetString ("Username") + "/" + score + "/" + timeMS));
     }
 
 }

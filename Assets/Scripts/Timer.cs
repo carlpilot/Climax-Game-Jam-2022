@@ -20,10 +20,7 @@ public class Timer : MonoBehaviour
 
     private void Update () {
         if(counting) count = Time.timeSinceLevelLoad;
-        int minutes = Mathf.FloorToInt(count / 60.0f);
-        int seconds = Mathf.FloorToInt (count - 60.0f * minutes);
-        int hundredths = Mathf.FloorToInt ((count - 60.0f * minutes - (float) seconds) * 100f);
-        GetComponent<Text> ().text = string.Format ("{0:D2}:{1:D2}.{2:D2}", minutes, seconds, hundredths);
+        GetComponent<Text> ().text = TimeFormat (count);
     }
 
     public void StopTime() {
@@ -41,4 +38,13 @@ public class Timer : MonoBehaviour
     }
 
     public bool extended { get => isExtended; }
+
+    public float time { get => count; }
+
+    public static string TimeFormat (float t) {
+        int minutes = Mathf.FloorToInt (t / 60.0f);
+        int seconds = Mathf.FloorToInt (t - 60.0f * minutes);
+        int hundredths = Mathf.FloorToInt ((t - 60.0f * minutes - (float) seconds) * 100f);
+        return string.Format ("{0:D2}:{1:D2}.{2:D2}", minutes, seconds, hundredths);
+    }
 }
