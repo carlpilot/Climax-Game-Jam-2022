@@ -22,6 +22,8 @@ public class MainMenu : MonoBehaviour
     public Slider G2;
     public Slider B2;
 
+    public Image picker1, picker2;
+
     public TMP_InputField usernameInput;
     //HealthBar hb;
 
@@ -30,14 +32,8 @@ public class MainMenu : MonoBehaviour
         var renderer1 = player1.GetComponentsInChildren<Renderer>()[1];
         var renderer2 = player2.GetComponentsInChildren<Renderer>()[1];
         if (!PlayerPrefs.HasKey ("R1")) {
-            var color1 = renderer1.material.color;
-            var color2 = renderer2.material.color;
-            R1.value = color1.r;
-            G1.value = color1.g;
-            B1.value = color1.b;
-            R2.value = color2.r;
-            G2.value = color2.g;
-            B2.value = color2.b;
+            R1.value = 0.4f; G1.value = 0.5f; B1.value = 0.9f;
+            R2.value = 0.8f; G2.value = 0.7f; B2.value = 0.4f;
         } else {
             R1.value = PlayerPrefs.GetFloat ("R1");
             G1.value = PlayerPrefs.GetFloat ("G1");
@@ -64,6 +60,8 @@ public class MainMenu : MonoBehaviour
         renderer2.material.color = colour2;
         ring1.material.color = colour1 / 2;
         ring2.material.color = colour2 / 2;
+        picker1.color = colour1;
+        picker2.color = colour2;
         //hb.RH1.color = colour1; hb.RH2.color = colour1; hb.RH3.color = colour1;
         //hb.BH1.color = colour2; hb.BH2.color = colour2; hb.BH3.color = colour2;
     }
