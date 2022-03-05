@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lift : MonoBehaviour
+public class Lever : MonoBehaviour
 {
   public PushButton button;
   public float maxHeight;
@@ -12,6 +12,6 @@ public class Lift : MonoBehaviour
     public GameObject target;
 
     void isPushed() {
-        return !target.isAtMax();        
+        return;// !target.isAtMax();        
     }
 }
