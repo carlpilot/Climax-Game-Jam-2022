@@ -55,9 +55,11 @@ public class GameManager : MonoBehaviour
         pauseMenu.gameObject.SetActive (false);
     }
 
-    
 
-    public void Win () {
+
+    public void Win () => Invoke ("RunWin", 1);
+
+    void RunWin () {
         if (hasEnded) return;
         hasEnded = true;
         winScreen.gameObject.SetActive (true);
