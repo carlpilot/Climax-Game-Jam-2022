@@ -809,6 +809,10 @@ MonoBehaviour:
   health: {fileID: 3584370609462143617}
   Player1: {fileID: 3584370609833013591}
   Player2: {fileID: 3584370609161546792}
+  Player1Mesh: {fileID: 2570646522995126870}
+  Player2Mesh: {fileID: 2570646523531047871}
+  Player1Torus: {fileID: 7232403712565081017}
+  Player2Torus: {fileID: 7232403713102901840}
   gameOverScreen: {fileID: 3414193464078131735}
   voidCutoff: -10
 --- !u!1001 &60736665
@@ -905,6 +909,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
   m_PrefabInstance: {fileID: 60736665}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &2570646523531047871 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6652725513331149018, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
+  m_PrefabInstance: {fileID: 60736665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7232403713102901840 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1990968323811559735, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
+  m_PrefabInstance: {fileID: 60736665}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &595608944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -972,6 +986,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5117700066308340382, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
+      propertyPath: m_Name
+      value: Body
+      objectReference: {fileID: 0}
     - target: {fileID: -4587302668392987624, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -988,6 +1006,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a3f4b93978dcf89adb570e107cc039ee, type: 2}
+    - target: {fileID: 117214286460000749, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
+      propertyPath: m_Name
+      value: Eyes
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
       propertyPath: m_Name
       value: Bean
@@ -997,6 +1019,16 @@ PrefabInstance:
 --- !u!4 &543450653137904283 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
+  m_PrefabInstance: {fileID: 595608944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2570646522995126870 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6652725513331149018, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
+  m_PrefabInstance: {fileID: 595608944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7232403712565081017 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1990968323811559735, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
   m_PrefabInstance: {fileID: 595608944}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1329031973497237073

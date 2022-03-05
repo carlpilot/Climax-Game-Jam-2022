@@ -6,12 +6,22 @@ public class GameManager : MonoBehaviour
 {
     public PlayerHealth health;
     public Transform Player1, Player2;
+    public MeshRenderer Player1Mesh, Player2Mesh, Player1Torus, Player2Torus;
 
     public GameObject gameOverScreen;
 
     public float voidCutoff = -10f; // player dies below this level
 
     bool hasLost = false;
+
+    private void Start () {
+        Color colour1 = new Color (PlayerPrefs.GetFloat ("R1"), PlayerPrefs.GetFloat ("G1"), PlayerPrefs.GetFloat ("B1"));
+        Color colour2 = new Color (PlayerPrefs.GetFloat ("R2"), PlayerPrefs.GetFloat ("G2"), PlayerPrefs.GetFloat ("B2"));
+        Player1Mesh.material.color = colour1;
+        Player2Mesh.material.color = colour2;
+        Player1Torus.material.color = colour1 / 2;
+        Player2Torus.material.color = colour2 / 2;
+    }
 
     private void Update () {
         if( health.health1 <= 0 || health.health2 <= 0 ||
