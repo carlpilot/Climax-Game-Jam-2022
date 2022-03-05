@@ -14,6 +14,15 @@ public class WinScreen : MonoBehaviour
 
     public void LoadLeaderboard (string highscores) {
         print (highscores);
+        string[] scores = highscores.Split ('\n');
+        for(int i = 0; i < scores.Length; i++) {
+            if (scores[i].Length < 2) continue;
+            string[] vals = scores[i].Split ('|');
+            GameObject newLBI = Instantiate (leaderboardItemPrefab);
+            newLBI.transform.parent = scrollContent;
+            LeaderboardItem lbi = newLBI.GetComponent<LeaderboardItem> ();
+            lbi.SetRank (i + 1); lbi.SetUsername (vals[0]); lbi.SetTime (int.Parse (vals[2]) / 1000.0f);
+        }
     }
 
     public void Trigger () {
