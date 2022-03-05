@@ -3076,7 +3076,7 @@ MonoBehaviour:
   BH1: {fileID: 2916555681914314585}
   BH2: {fileID: 2916555681647703811}
   BH3: {fileID: 2916555683051585513}
-  empty: {fileID: 21300000, guid: 0630657890d23574899c2b4b8d7702db, type: 3}
+  empty: {fileID: 21300000, guid: cc46094ef5355d74fa94275fda8f47d2, type: 3}
   red: {fileID: 21300000, guid: 346ad786968a87d4790d4477eeb7cbab, type: 3}
   blue: {fileID: 21300000, guid: 346ad786968a87d4790d4477eeb7cbab, type: 3}
   halfRed: {fileID: 21300000, guid: 72f0cec8e9722c24cb1e93a7e869bbec, type: 3}
