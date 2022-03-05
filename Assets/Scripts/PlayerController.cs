@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour {
     [Header("Friction and Righting")]
     public float groundFriction = 1.0f;
     public float restoringMoment = 1.0f; // Torque keeping player upright
+    public float basicRestoringMoment = 0.1f; // always on
 
     [Header ("Powerup Effects")]
     public float SpeedMultiplierP1 = 1.0f;
@@ -58,6 +59,8 @@ public class PlayerController : MonoBehaviour {
             P1.AddTorque (restoringMoment * P1.mass * Vector3.forward * Vector3.SignedAngle (P1.transform.up, Vector3.up, Vector3.forward));
         if (groundContact (P2))
             P2.AddTorque (restoringMoment * P2.mass * Vector3.forward * Vector3.SignedAngle (P2.transform.up, Vector3.up, Vector3.forward));
+        P1.AddTorque (basicRestoringMoment * P1.mass * Vector3.forward * Vector3.SignedAngle (P1.transform.up, Vector3.up, Vector3.forward));
+        P2.AddTorque (basicRestoringMoment * P2.mass * Vector3.forward * Vector3.SignedAngle (P2.transform.up, Vector3.up, Vector3.forward));
 
         // Ground friction
         float modfric1 = groundFriction * (Mathf.Abs(ha1.x) > 0.05f ? 0 : 1);
