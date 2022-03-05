@@ -8,11 +8,12 @@ public class GameManager : MonoBehaviour
     public Transform Player1, Player2;
     public MeshRenderer Player1Mesh, Player2Mesh, Player1Torus, Player2Torus;
 
+    public GameObject winScreen;
     public GameObject gameOverScreen;
 
     public float voidCutoff = -10f; // player dies below this level
 
-    bool hasLost = false;
+    bool hasEnded = false;
 
     private void Start () {
         Color colour1 = new Color (PlayerPrefs.GetFloat ("R1"), PlayerPrefs.GetFloat ("G1"), PlayerPrefs.GetFloat ("B1"));
@@ -30,10 +31,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Win () {
+        if (hasEnded) return;
+        hasEnded = true;
+        winScreen.SetActive (true);
+        winScreen.GetComponent<WinScreen> ().Trigger ();
+    }
+
     public void Lose () {
-        if (hasLost) return; // don't lose twice
+        if (hasEnded) return; // don't lose twice
         print ("Died");
-        hasLost = true;
+        hasEnded = true;
         gameOverScreen.SetActive (true);
         gameOverScreen.GetComponent<GameOverScreen> ().Trigger ();
         Timer t = FindObjectOfType<Timer> ();
