@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
 
     static string[] adjectives = { "steamy", "spicy", "salty", "delectable", "many", "tinned", "refried", "hot", "cold"};
     static string[] typesOfBean = { "baked", "runner", "kidney", "green", "black", "white", "cowboy", "adzuki", "edamame", "lima" };
-    static string[] beanWords = { "bean", "beans", "beans", "beans",, "frijoles", "haricot", "beansontoast"};
+    static string[] beanWords = { "bean", "beans", "beans", "beans", "frijoles", "haricot", "beansontoast"};
 
     public GameObject player1;
     public GameObject player2;
