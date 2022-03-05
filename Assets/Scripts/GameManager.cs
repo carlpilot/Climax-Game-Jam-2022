@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
     public void ReloadLevel () => gameOverScreen.RestartScene ();
 
     public void getHighScores() {
-        StartCoroutine(getHSHelper("http://dreamlo.com/lb/622358b4778d3c8cfc1502d1/pipe-seconds-asc"));
+        StartCoroutine(getHSHelper("http://dreamlo.com/lb/" + SecretCode.Public (level) + "/pipe-seconds-asc"));
     }
 
     public IEnumerator getHSHelper(string uri) {
@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
     public void putHighScore(float time) {
         int timeMS = Mathf.FloorToInt (time * 1000);
         int score = 10000000 - timeMS; // lower time = higher score
-        StartCoroutine(putHSHelper("http://dreamlo.com/lb/tP95lQz0CkyNk7cR_YPPuAkN7wCkOxIkCu7WjI8E345g/add/"+ PlayerPrefs.GetString("Username") + "/" + score + "/" + timeMS));
+        StartCoroutine(putHSHelper("http://dreamlo.com/lb/" + SecretCode.Private (level) + "/add/" + PlayerPrefs.GetString("Username") + "/" + score + "/" + timeMS));
     }
 
     public IEnumerator putHSHelper(string uri) {
@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
     public void putGetHighScores (float time) {
         int timeMS = Mathf.FloorToInt (time * 1000);
         int score = 10000000 - timeMS; // lower time = higher score
-        StartCoroutine (getHSHelper ("http://dreamlo.com/lb/tP95lQz0CkyNk7cR_YPPuAkN7wCkOxIkCu7WjI8E345g/add-pipe-seconds-asc/" + PlayerPrefs.GetString ("Username") + "/" + score + "/" + timeMS));
+        StartCoroutine (getHSHelper ("http://dreamlo.com/lb/" + SecretCode.Private(level) + "/add-pipe-seconds-asc/" + PlayerPrefs.GetString ("Username") + "/" + score + "/" + timeMS));
     }
 
 }

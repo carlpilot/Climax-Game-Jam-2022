@@ -333,7 +333,7 @@ MonoBehaviour:
   horizontalDeconflictionDistance: 0.6
   raycastLayerMask:
     serializedVersion: 2
-    m_Bits: 63
+    m_Bits: 191
   jumpVelocity: 10
   jumpMaxGroundDist: 1.3
   groundFriction: 1

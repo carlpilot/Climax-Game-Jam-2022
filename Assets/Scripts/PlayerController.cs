@@ -44,8 +44,10 @@ public class PlayerController : MonoBehaviour {
     public float crouchGravityFactor = 1.5f;
 
     [Header ("Powerup Effects")]
-    public float SpeedMultiplierP1 = 1.0f;
-    public float SpeedMultiplierP2 = 1.0f;
+    public float SpeedBoostP1 = 1.0f;
+    public float SpeedBoostP2 = 1.0f;
+    public float JumpBoostP1 = 1.0f;
+    public float JumpBoostP2 = 1.0f;
 
     private void Start () {
         startface1 = PlayerModel1.localEulerAngles.y;
@@ -68,9 +70,9 @@ public class PlayerController : MonoBehaviour {
 
         // Vertical motion
         if (Input.GetKey (Key_P1_Jump) && canJump (P1))
-            P1.velocity += Vector3.up * (jumpVelocity - P1.velocity.y);
+            P1.velocity += Vector3.up * (jumpVelocity - P1.velocity.y) * JumpBoostP1;
         if (Input.GetKey (Key_P2_Jump) && canJump (P2))
-            P2.velocity += Vector3.up * (jumpVelocity - P2.velocity.y);
+            P2.velocity += Vector3.up * (jumpVelocity - P2.velocity.y) * JumpBoostP2;
 
         // Crouch gravity
         if (Input.GetKey (Key_P1_Crouch))
@@ -130,9 +132,9 @@ public class PlayerController : MonoBehaviour {
     // 1 = right, -1 = left, 0 = none
     float horizontal (int player) {
         if(player == 1) {
-            return maxSpeed * ((Input.GetKey (Key_P1_Left) ? -1f : 0f) + (Input.GetKey (Key_P1_Right) ? 1f : 0f)) * SpeedMultiplierP1;
+            return maxSpeed * ((Input.GetKey (Key_P1_Left) ? -1f : 0f) + (Input.GetKey (Key_P1_Right) ? 1f : 0f)) * SpeedBoostP1;
         } else {
-            return maxSpeed * ((Input.GetKey (Key_P2_Left) ? -1f : 0f) + (Input.GetKey (Key_P2_Right) ? 1f : 0f)) * SpeedMultiplierP2;
+            return maxSpeed * ((Input.GetKey (Key_P2_Left) ? -1f : 0f) + (Input.GetKey (Key_P2_Right) ? 1f : 0f)) * SpeedBoostP2;
         }
     }
 }
