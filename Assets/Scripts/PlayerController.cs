@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour {
 
     [Header ("Sounds")]
     public AudioSource loopingStepSound;
+    public AudioSource jumpSound;
 
     private void Start () {
         startface1 = PlayerModel1.localEulerAngles.y;
@@ -82,10 +83,14 @@ public class PlayerController : MonoBehaviour {
 
         // Vertical motion
         if (enableJumping) {
-            if (Input.GetKey (Key_P1_Jump) && canJump (P1))
+            if (Input.GetKey (Key_P1_Jump) && canJump (P1)){
                 P1.velocity += Vector3.up * (jumpVelocity - P1.velocity.y) * JumpBoostP1;
-            if (Input.GetKey (Key_P2_Jump) && canJump (P2))
+                jumpSound.Play();
+              }
+            if (Input.GetKey (Key_P2_Jump) && canJump (P2)){
                 P2.velocity += Vector3.up * (jumpVelocity - P2.velocity.y) * JumpBoostP2;
+                jumpSound.Play();
+              }
         }
 
         // Crouch gravity

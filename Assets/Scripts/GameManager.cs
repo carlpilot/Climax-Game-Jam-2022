@@ -57,22 +57,20 @@ public class GameManager : MonoBehaviour
 
 
 
-    public void Win () => Invoke ("RunWin", 1);
+    public void Win () {
+        if (hasEnded) return;
+        EndGame ();
+        Invoke ("RunWin", 1);
+    }
 
     void RunWin () {
-        if (hasEnded) return;
-        hasEnded = true;
         winScreen.gameObject.SetActive (true);
         winScreen.GetComponent<WinScreen> ().Trigger ();
-        //putHighScore (timer.time);
-        //getHighScores ();
         putGetHighScores (timer.time);
-        EndGame ();
     }
 
     public void Lose () {
         if (hasEnded) return; // don't lose twice
-        hasEnded = true;
         gameOverScreen.gameObject.SetActive (true);
         gameOverScreen.GetComponent<GameOverScreen> ().Trigger ();
         EndGame ();
@@ -80,6 +78,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void EndGame () {
+        hasEnded = true;
         timer.StopTime ();
         if (!timer.extended) timer.ToggleTimerExtended (false);
         pc.enableMovement = false;
