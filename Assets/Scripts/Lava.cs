@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Lava : MonoBehaviour
+{
+    PlayerController pc;
+    PlayerHealth he;
+
+    private void Start () {
+        pc = FindObjectOfType<PlayerController> ();
+        he = FindObjectOfType<PlayerHealth> ();
+    }
+
+    private void OnTriggerStay (Collider other) {
+        if (other.GetComponent<Rigidbody> () == null) return;
+        if (other.GetComponent<Rigidbody> () == pc.P1 || other.GetComponent<Rigidbody> () == pc.P2) {
+            // Player in the lava
+            if (other.GetComponent<Rigidbody> () == pc.P1 && Random.Range (0, 100) < 10)
+                he.health1--;
+            if (other.GetComponent<Rigidbody> () == pc.P2 && Random.Range (0, 100) < 5)
+                he.health2--;
+        }
+    }
+}

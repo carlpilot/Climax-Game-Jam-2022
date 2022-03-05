@@ -323,6 +323,7 @@ MonoBehaviour:
   Key_P2_Left: 106
   Key_P2_Right: 108
   Key_P2_Crouch: 107
+  Key_Switch_Powerups: 32
   P1: {fileID: 3584370609833013587}
   P2: {fileID: 3584370609161546796}
   PlayerModel1: {fileID: 543450653137904283}
@@ -341,8 +342,10 @@ MonoBehaviour:
   basicRestoringMoment: 0.1
   crouchFrictionFactor: 50
   crouchGravityFactor: 2
-  SpeedMultiplierP1: 1
-  SpeedMultiplierP2: 1
+  SpeedBoostP1: 1
+  SpeedBoostP2: 1
+  JumpBoostP1: 1
+  JumpBoostP2: 1
 --- !u!114 &3584370609462143617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +353,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3584370609462143623}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: baf135de266557a4b89805dab2152a18, type: 3}
   m_Name: 
