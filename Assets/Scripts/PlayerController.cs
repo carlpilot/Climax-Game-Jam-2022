@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour {
     public float crouchSpeedMultiplier = 0.5f;
     public float crouchFrictionFactor = 10.0f;
     public float crouchGravityFactor = 1.5f;
+    public float crouchSpeed = 2f;
 
     [Header ("Powerup Effects")]
     public float SpeedBoostP1 = 1.0f;
@@ -87,6 +88,7 @@ public class PlayerController : MonoBehaviour {
         // Crouch gravity
         if (Input.GetKey (Key_P1_Crouch))
             P1.AddForce (Vector3.up * P1.mass * -9.81f * (crouchGravityFactor - 1.0f));
+
         if (Input.GetKey (Key_P2_Crouch))
             P2.AddForce (Vector3.up * P2.mass * -9.81f * (crouchGravityFactor - 1.0f));
 
@@ -145,6 +147,16 @@ public class PlayerController : MonoBehaviour {
         var P2E = P2PS.emission;;
         P1E.rateOverTime = P1Particles;
         P2E.rateOverTime = P2Particles;
+
+        // Crouch makes you smaller
+        // Crouch gravity
+        var P1Scale = new Vector3(1,1,1);
+        if (Input.GetKey (Key_P1_Crouch)) P1Scale = new Vector3(1, 0.8f, 1);
+        P1.gameObject.transform.localScale = Vector3.Lerp(P1.gameObject.transform.localScale, P1Scale, Time.fixedDeltaTime*crouchSpeed);
+
+        var P2Scale = new Vector3(1,1,1);
+        if (Input.GetKey (Key_P2_Crouch)) P2Scale = new Vector3(1, 0.8f, 1);
+        P2.gameObject.transform.localScale = Vector3.Lerp(P2.gameObject.transform.localScale, P2Scale, Time.fixedDeltaTime*crouchSpeed);
     }
 
     bool canJump (Rigidbody g) {
