@@ -13,7 +13,7 @@ public class WinScreen : MonoBehaviour
     int level { get => SceneManager.GetActiveScene().buildIndex; }
 
     public void LoadLeaderboard (string highscores) {
-        // TODO
+        print (highscores);
     }
 
     public void Trigger () {
