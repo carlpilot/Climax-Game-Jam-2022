@@ -8,9 +8,9 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
 
-    static string[] adjectives = { "steamy", "spicy", "salty", "delectable", "many", "tinned"};
+    static string[] adjectives = { "steamy", "spicy", "salty", "delectable", "many", "tinned", "refried", "hot", "cold"};
     static string[] typesOfBean = { "baked", "runner", "kidney", "green", "black", "white", "cowboy", "adzuki", "edamame", "lima" };
-    static string[] beanWords = { "bean", "beans", "frijoles", "haricot"};
+    static string[] beanWords = { "bean", "beans", "beans", "beans",, "frijoles", "haricot", "beansontoast"};
 
     public GameObject player1;
     public GameObject player2;
@@ -76,7 +76,8 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetFloat("G2", G2.value);
         PlayerPrefs.SetFloat("B2", B2.value);
         SaveUsername ();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene (SceneManager.sceneCountInBuildSettings - 1); // load last scene (level select)
     }
 
     public void quitGame() {
