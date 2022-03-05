@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 3284861901997825912}
   m_Layer: 6
   m_Name: ChainLink
-  m_TagString: Untagged
+  m_TagString: Chain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
