@@ -15,6 +15,7 @@ public class Timer : MonoBehaviour
     float count = 0;
 
     private void Start () {
+        if (!PlayerPrefs.HasKey ("TimerExtended")) PlayerPrefs.SetInt ("TimerExtended", 1);
         if (PlayerPrefs.GetInt ("TimerExtended") == 0) ToggleTimerExtended (); // retract timer if the playerprefs say so
     }
 
