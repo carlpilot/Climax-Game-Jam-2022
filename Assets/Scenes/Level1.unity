@@ -3374,6 +3374,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3584370609462143618, guid: 19d3f33c10f740561b77e9543f8dee7b, type: 3}
+      propertyPath: jumpVelocity
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3584370610946739873, guid: 19d3f33c10f740561b77e9543f8dee7b, type: 3}
       propertyPath: m_RenderPostProcessing
       value: 1
