@@ -37,7 +37,8 @@ public class ChainGenerator : MonoBehaviour
         pos += add;
         currentLink.GetComponent<ConfigurableJoint>().connectedBody = prevLink.GetComponent<Rigidbody>();
         //currentLink.GetComponent<Rigidbody>().isKinematic = true;
-        //currentLink.transform.Rotate(0, 0, -90);
+        //currentLink.transform.rotation = dir;
+        currentLink.transform.Rotate(0, 0, 90);
         if (a){
           foreach (Transform child in currentLink.transform){
             child.localRotation = Quaternion.Euler(new Vector3(0, 90, 0));
