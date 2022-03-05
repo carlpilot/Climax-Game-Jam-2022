@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lift : MonoBehaviour
+public class PlatformLift : MonoBehaviour
 {
   public PushButton button;
   public float maxHeight;
