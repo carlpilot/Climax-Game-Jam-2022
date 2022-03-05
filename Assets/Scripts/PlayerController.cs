@@ -56,6 +56,10 @@ public class PlayerController : MonoBehaviour {
     public bool enableJumping = true;
     public bool enableRighting = true;
 
+    [Header ("Sounds")]
+    public AudioSource loopingStepSound;
+    public AudioSource jumpSound;
+
     private void Start () {
         startface1 = PlayerModel1.localEulerAngles.y;
         startface2 = PlayerModel2.localEulerAngles.y;
@@ -79,10 +83,14 @@ public class PlayerController : MonoBehaviour {
 
         // Vertical motion
         if (enableJumping) {
-            if (Input.GetKey (Key_P1_Jump) && canJump (P1))
+            if (Input.GetKey (Key_P1_Jump) && canJump (P1)){
                 P1.velocity += Vector3.up * (jumpVelocity - P1.velocity.y) * JumpBoostP1;
-            if (Input.GetKey (Key_P2_Jump) && canJump (P2))
+                jumpSound.Play();
+              }
+            if (Input.GetKey (Key_P2_Jump) && canJump (P2)){
                 P2.velocity += Vector3.up * (jumpVelocity - P2.velocity.y) * JumpBoostP2;
+                jumpSound.Play();
+              }
         }
 
         // Crouch gravity
@@ -149,7 +157,6 @@ public class PlayerController : MonoBehaviour {
         P2E.rateOverTime = P2Particles;
 
         // Crouch makes you smaller
-        // Crouch gravity
         var P1Scale = new Vector3(1,1,1);
         if (Input.GetKey (Key_P1_Crouch)) P1Scale = new Vector3(1, 0.8f, 1);
         P1.gameObject.transform.localScale = Vector3.Lerp(P1.gameObject.transform.localScale, P1Scale, Time.fixedDeltaTime*crouchSpeed);
@@ -157,6 +164,13 @@ public class PlayerController : MonoBehaviour {
         var P2Scale = new Vector3(1,1,1);
         if (Input.GetKey (Key_P2_Crouch)) P2Scale = new Vector3(1, 0.8f, 1);
         P2.gameObject.transform.localScale = Vector3.Lerp(P2.gameObject.transform.localScale, P2Scale, Time.fixedDeltaTime*crouchSpeed);
+
+        // Sounds
+        if ((canJump(P1) && Mathf.Abs(P1.velocity.x) > 1.5f && horizontal(1) != 0) || (canJump(P2) && Mathf.Abs(P2.velocity.x) > 1.5f && horizontal(2) != 0)) {
+          if (!loopingStepSound.isPlaying) loopingStepSound.Play();
+        } else{
+          if (loopingStepSound.isPlaying) loopingStepSound.Stop();
+        }
     }
 
     bool canJump (Rigidbody g) {
