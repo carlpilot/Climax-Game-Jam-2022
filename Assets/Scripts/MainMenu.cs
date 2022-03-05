@@ -29,14 +29,23 @@ public class MainMenu : MonoBehaviour
         hb = FindObjectOfType<HealthBar> ();
         var renderer1 = player1.GetComponentsInChildren<Renderer>()[1];
         var renderer2 = player2.GetComponentsInChildren<Renderer>()[1];
-        var color1 = renderer1.material.color;
-        var color2 = renderer2.material.color;
-        R1.value = color1.r;
-        G1.value = color1.g;
-        B1.value = color1.b;
-        R2.value = color2.r;
-        G2.value = color2.g;
-        B2.value = color2.b;
+        if (!PlayerPrefs.HasKey ("R1")) {
+            var color1 = renderer1.material.color;
+            var color2 = renderer2.material.color;
+            R1.value = color1.r;
+            G1.value = color1.g;
+            B1.value = color1.b;
+            R2.value = color2.r;
+            G2.value = color2.g;
+            B2.value = color2.b;
+        } else {
+            R1.value = PlayerPrefs.GetFloat ("R1");
+            G1.value = PlayerPrefs.GetFloat ("G1");
+            B1.value = PlayerPrefs.GetFloat ("B1");
+            R2.value = PlayerPrefs.GetFloat ("R2");
+            G2.value = PlayerPrefs.GetFloat ("G2");
+            B2.value = PlayerPrefs.GetFloat ("B2");
+        }
         if(!PlayerPrefs.HasKey("Username")) {
             NewUsername ();
         } else {

@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
 
     public WinScreen winScreen;
     public GameOverScreen gameOverScreen;
+    public RectTransform pauseMenu;
+
+    public KeyCode pauseKey = KeyCode.Escape;
 
     public float voidCutoff = -10f; // player dies below this level
 
@@ -22,6 +25,7 @@ public class GameManager : MonoBehaviour
     public static int level { get => SceneManager.GetActiveScene ().buildIndex; }
 
     private void Start () {
+        Time.timeScale = 1; // undo any pause which may have happened before scene load
         pc = FindObjectOfType<PlayerController> ();
         he = FindObjectOfType<PlayerHealth> ();
         timer = FindObjectOfType<Timer> ();
@@ -39,7 +43,19 @@ public class GameManager : MonoBehaviour
             Player1.position.y < voidCutoff || Player2.position.y < voidCutoff) {
             Lose ();
         }
+        if (Input.GetKeyDown (pauseKey)) Pause ();
     }
+
+    public void Pause () {
+        pauseMenu.gameObject.SetActive (true);
+        Time.timeScale = 0;
+    }
+    public void Unpause () {
+        Time.timeScale = 1;
+        pauseMenu.gameObject.SetActive (false);
+    }
+
+    
 
     public void Win () {
         if (hasEnded) return;
