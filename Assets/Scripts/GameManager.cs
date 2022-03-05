@@ -55,8 +55,6 @@ public class GameManager : MonoBehaviour
         pauseMenu.gameObject.SetActive (false);
     }
 
-
-
     public void Win () {
         if (hasEnded) return;
         EndGame ();
@@ -67,6 +65,8 @@ public class GameManager : MonoBehaviour
         winScreen.gameObject.SetActive (true);
         winScreen.GetComponent<WinScreen> ().Trigger ();
         putGetHighScores (timer.time);
+        if (!PlayerPrefs.HasKey ("LastLevelCompleted") || PlayerPrefs.GetInt ("LastLevelCompleted") < level)
+            PlayerPrefs.SetInt ("LastLevelCompleted", level);
     }
 
     public void Lose () {

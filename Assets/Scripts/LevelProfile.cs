@@ -11,6 +11,8 @@ public class LevelProfile : MonoBehaviour
     public int level;
     public TMP_Text levelTitle;
     public RawImage icon;
+    public Button playButton;
+    public GameObject lockIcon;
 
     LevelSelect ls;
 
@@ -19,6 +21,10 @@ public class LevelProfile : MonoBehaviour
         levelTitle.text = "Level " + level;
         StartCoroutine(LoadLeaderboard());
         icon.texture = ls.icons[level - 1];
+        if(PlayerPrefs.GetInt("LastLevelCompleted") + 1 < level) {
+            playButton.enabled = false;
+            lockIcon.SetActive (true);
+        }
     }
 
     IEnumerator LoadLeaderboard () {

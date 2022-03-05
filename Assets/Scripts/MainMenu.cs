@@ -47,6 +47,7 @@ public class MainMenu : MonoBehaviour
         } else {
             usernameInput.text = PlayerPrefs.GetString ("Username");
         }
+        if (!PlayerPrefs.HasKey ("LastLevelCompleted")) PlayerPrefs.SetInt ("LastLevelCompleted", 0);
     }
 
     public void Update() {
