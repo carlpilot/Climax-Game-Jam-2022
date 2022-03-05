@@ -889,6 +889,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6652725513331149018, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 341ebbf901b8d66e5a0440c02541860b, type: 2}
     - target: {fileID: -4587302668392987624, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -904,11 +908,15 @@ PrefabInstance:
     - target: {fileID: -1990968323811559735, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: db44dbf64c8e2c6ea92bada985a289fc, type: 2}
+      objectReference: {fileID: 2100000, guid: a3f4b93978dcf89adb570e107cc039ee, type: 2}
     - target: {fileID: 919132149155446097, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
       propertyPath: m_Name
       value: Bean
       objectReference: {fileID: 0}
+    - target: {fileID: 2803436535603912181, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b3d537caf3264d7bfb8fc5b246bf01f7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
 --- !u!4 &543450653673104242 stripped
@@ -993,6 +1001,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6652725513331149018, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 341ebbf901b8d66e5a0440c02541860b, type: 2}
     - target: {fileID: -5117700066308340382, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
       propertyPath: m_Name
       value: Body
@@ -1021,6 +1033,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bean
       objectReference: {fileID: 0}
+    - target: {fileID: 2803436535603912181, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b3d537caf3264d7bfb8fc5b246bf01f7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
 --- !u!4 &543450653137904283 stripped
