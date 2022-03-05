@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
+
+    string[] adjectives = { "steamy", "spicy", "salty", "delectable", "many", "tinned"};
+    string[] typesOfBean = { "baked", "runner", "kidney", "green", "black", "white", "cowboy", "adzuki", "edamame", "lima" };
+    string[] beanWords = { "bean", "beans", "frijoles", "haricot"};
 
     public GameObject player1;
     public GameObject player2;
@@ -16,6 +21,8 @@ public class MainMenu : MonoBehaviour
     public Slider R2;
     public Slider G2;
     public Slider B2;
+
+    public TMP_InputField usernameInput;
 
     public void Start() {
         var renderer1 = player1.GetComponentsInChildren<Renderer>()[1];
@@ -28,7 +35,11 @@ public class MainMenu : MonoBehaviour
         R2.value = color2.r;
         G2.value = color2.g;
         B2.value = color2.b;
-
+        if(!PlayerPrefs.HasKey("Username")) {
+            NewUsername ();
+        } else {
+            usernameInput.text = PlayerPrefs.GetString ("Username");
+        }
     }
 
     public void Update() {
@@ -49,11 +60,21 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetFloat("R2", R2.value);
         PlayerPrefs.SetFloat("G2", G2.value);
         PlayerPrefs.SetFloat("B2", B2.value);
+        SaveUsername ();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void quitGame() {
         Application.Quit();
     }
+
+    public void NewUsername () => usernameInput.text = GenerateUsername ();
+
+    public string GenerateUsername() {
+        string u = adjectives[Random.Range (0, adjectives.Length)] + typesOfBean[Random.Range (0, typesOfBean.Length)] + beanWords[Random.Range (0, beanWords.Length)] + Random.Range (100, 999);
+        return u.Length <= 25 ? u : GenerateUsername ();
+    }
+
+    public void SaveUsername () => PlayerPrefs.SetString ("Username", usernameInput.text);
 
 }
