@@ -6,7 +6,8 @@ public class PushButton : MonoBehaviour
 {
   public GameObject unPushedButton;
   public GameObject pushedButton;
-  public bool isPushed;
+  public bool isPushed{get; private set;}
+  public bool persist;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,13 +28,21 @@ public class PushButton : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player"){
-          isPushed = true;
+          Push();
         }
     }
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player"){
-          isPushed = false;
+          UnPush();
         }
+    }
+
+    public void Push(){
+      isPushed = true;
+    }
+
+    public void UnPush(){
+      isPushed = false;
     }
 }
