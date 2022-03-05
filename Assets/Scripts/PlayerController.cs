@@ -198,4 +198,19 @@ public class PlayerController : MonoBehaviour {
             return maxSpeed * ((Input.GetKey (Key_P2_Left) ? -1f : 0f) + (Input.GetKey (Key_P2_Right) ? 1f : 0f)) * SpeedBoostP2;
         }
     }
+
+    public void burn_P1 () {
+        var renderer = P1.GetComponentsInChildren<Renderer>()[1];
+        var ring = P1.GetComponentsInChildren<Renderer>()[3];
+        renderer.material.color = Color.black;
+        ring.material.color = Color.black;
+    }
+
+    public void burn_P2 () {
+        var renderer = P2.GetComponentsInChildren<Renderer>()[1];
+        var ring = P2.GetComponentsInChildren<Renderer>()[3];
+        renderer.material.color = Color.black;
+        ring.material.color = Color.black;
+    }
+
 }

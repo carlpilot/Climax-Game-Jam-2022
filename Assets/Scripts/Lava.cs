@@ -18,8 +18,14 @@ public class Lava : MonoBehaviour
             // Player in the lava
             if (other.GetComponent<Rigidbody> () == pc.P1 && Random.Range (0, 100) < 10)
                 he.health1--;
+                if (he.health1 == 0) {
+                    pc.burn_P1();
+                }
             if (other.GetComponent<Rigidbody> () == pc.P2 && Random.Range (0, 100) < 5)
                 he.health2--;
+                if (he.health2 == 0) {
+                    pc.burn_P2();
+                }
         }
     }
 }
