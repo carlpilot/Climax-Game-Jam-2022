@@ -16,8 +16,9 @@ public class PlayerController : MonoBehaviour {
     public KeyCode Key_P2_Crouch = KeyCode.K;
     #endregion
 
-    [Header("Players")]
-    public Rigidbody P1, P2;
+    [Header ("Players")]
+    public Rigidbody P1;
+    public Rigidbody P2;
     public Transform PlayerModel1, PlayerModel2;
     int facing1 = 1, facing2 = 1; // 1 = right, -1 = left
     float startface1, startface2;
