@@ -17,12 +17,15 @@ public class ChainGenerator : MonoBehaviour
       var pos = A.gameObject.transform.position;
       var add = (B.transform.position - A.transform.position) / (float)(chainLength);
       var dir = Quaternion.LookRotation(B.transform.position - A.transform.position);
-      bool a = false;
+      bool a = true;
       for (int i = 0; i < chainLength; i++){
         if (i != chainLength - 1) {
           currentLink = Instantiate(linkPrefab);
         } else{
           currentLink = Instantiate(endLinkPrefab);
+        }
+        if (i == 0){
+          currentLink.GetComponent<ConfigurableJoint>().connectedAnchor = new Vector3(0, 1.16f, 0);
         }
 
         if (i == 0 || i == chainLength - 1){
