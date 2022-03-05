@@ -11104,7 +11104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 531506717568447003, guid: c72cbb122abb74b4aa8a7362e414c80a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.184496
+      value: -34.49
       objectReference: {fileID: 0}
     - target: {fileID: 531506717568447003, guid: c72cbb122abb74b4aa8a7362e414c80a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11116,19 +11116,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 531506717568447003, guid: c72cbb122abb74b4aa8a7362e414c80a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99043685
       objectReference: {fileID: 0}
     - target: {fileID: 531506717568447003, guid: c72cbb122abb74b4aa8a7362e414c80a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 531506717568447003, guid: c72cbb122abb74b4aa8a7362e414c80a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.13796705
       objectReference: {fileID: 0}
     - target: {fileID: 531506717568447003, guid: c72cbb122abb74b4aa8a7362e414c80a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 531506717568447003, guid: c72cbb122abb74b4aa8a7362e414c80a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11136,7 +11136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 531506717568447003, guid: c72cbb122abb74b4aa8a7362e414c80a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 15.86
       objectReference: {fileID: 0}
     - target: {fileID: 531506717568447003, guid: c72cbb122abb74b4aa8a7362e414c80a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -11145,6 +11145,16 @@ PrefabInstance:
     - target: {fileID: 2250772163691901919, guid: c72cbb122abb74b4aa8a7362e414c80a, type: 3}
       propertyPath: m_Name
       value: Signpost
+      objectReference: {fileID: 0}
+    - target: {fileID: 5705516493782205228, guid: c72cbb122abb74b4aa8a7362e414c80a, type: 3}
+      propertyPath: m_text
+      value: 'Use AD and JL to move
+
+        To jump, use W and I
+
+
+        Try to
+        jump over this rock!'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c72cbb122abb74b4aa8a7362e414c80a, type: 3}
