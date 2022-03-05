@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4905417497569409400}
   - component: {fileID: 465202771904997959}
+  - component: {fileID: 9189353161671823912}
+  - component: {fileID: 8626083885858667730}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Untagged
@@ -45,6 +47,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 064f24f23fe46050ea8526775a0ba397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &9189353161671823912
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124762000531954767}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2013054, y: 1, z: 2.676236}
+  m_Center: {x: -0.025472641, y: 0, z: 0.026355624}
+--- !u!54 &8626083885858667730
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124762000531954767}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &9211606642722173163
 PrefabInstance:
   m_ObjectHideFlags: 0
