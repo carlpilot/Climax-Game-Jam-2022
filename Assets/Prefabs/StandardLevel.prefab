@@ -324,9 +324,9 @@ MonoBehaviour:
   Key_P2_Crouch: 107
   P1: {fileID: 3584370609833013587}
   P2: {fileID: 3584370609161546796}
-  PlayerModel1: {fileID: 0}
-  PlayerModel2: {fileID: 0}
-  rotationToFace: 180
+  PlayerModel1: {fileID: 543450653137904283}
+  PlayerModel2: {fileID: 543450653673104242}
+  rotationToFace: -180
   maxSpeed: 6
   acceleration: 10
   horizontalDeconflictionDistance: 0.6
@@ -856,7 +856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
       propertyPath: m_LocalRotation.y
@@ -864,7 +864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4956ab2055961137e8aa494c1a12e58f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
