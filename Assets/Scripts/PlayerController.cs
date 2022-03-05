@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour {
     public float basicRestoringMoment = 0.1f; // always on
 
     [Header ("Crouching")]
+    public float crouchSpeedMultiplier = 0.5f;
     public float crouchFrictionFactor = 10.0f;
     public float crouchGravityFactor = 1.5f;
 
@@ -62,8 +63,10 @@ public class PlayerController : MonoBehaviour {
     private void FixedUpdate () {
 
         // Horizontal motion
-        Vector3 ha1 = Vector3.right * horizontal (1) * Mathf.Clamp01 (maxSpeed * SpeedBoostP1 - P1.velocity.magnitude) * acceleration;
-        Vector3 ha2 = Vector3.right * horizontal (2) * Mathf.Clamp01 (maxSpeed * SpeedBoostP2 - P2.velocity.magnitude) * acceleration;
+        float cs1 = Input.GetKey (Key_P1_Crouch) ? crouchSpeedMultiplier : 1.0f;
+        float cs2 = Input.GetKey (Key_P2_Crouch) ? crouchSpeedMultiplier : 1.0f;
+        Vector3 ha1 = Vector3.right * horizontal (1) * Mathf.Clamp01 (maxSpeed * SpeedBoostP1 * cs1 - P1.velocity.magnitude) * acceleration;
+        Vector3 ha2 = Vector3.right * horizontal (2) * Mathf.Clamp01 (maxSpeed * SpeedBoostP2 * cs2 - P2.velocity.magnitude) * acceleration;
         if (clearLeft (P1) && ha1.x < 0 || clearRight (P1) && ha1.x > 0) {
             P1.velocity += ha1 * Time.fixedDeltaTime;
             facing1 = ha1.x > 0 ? 1 : -1;
