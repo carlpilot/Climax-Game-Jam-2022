@@ -16,25 +16,26 @@ public class PlayerController : MonoBehaviour {
     public KeyCode Key_P2_Crouch = KeyCode.K;
     #endregion
 
+    [Header("Players")]
     public Rigidbody P1, P2;
 
+    [Header("Speed and Acceleration")]
     public float maxSpeed = 3.0f; // m/s
     public float acceleration = 5.0f; // m/s^2
 
+    [Header("Jumping and Collisions")]
     public float horizontalDeconflictionDistance = 0.6f; // don't move horizontally when obstacle this close or closer
-
     public LayerMask raycastLayerMask;
-
     public float jumpVelocity = 6.0f; // initial, m/s upwards
     public float jumpMaxGroundDist = 1.25f; // Maximum distance from player origin to ground to jump
 
-    public float groundFriction = 1.0f; // Unused for now
-
+    [Header("Friction and Righting")]
+    public float groundFriction = 1.0f;
     public float restoringMoment = 1.0f; // Torque keeping player upright
 
-    private void Start () {
-
-    }
+    [Header ("Powerup Effects")]
+    public float SpeedMultiplierP1 = 1.0f;
+    public float SpeedMultiplierP2 = 1.0f;
 
     private void FixedUpdate () {
 
@@ -48,10 +49,8 @@ public class PlayerController : MonoBehaviour {
 
         // Vertical motion
         if (Input.GetKey (Key_P1_Jump) && canJump (P1))
-            //P1.AddForce(Vector3.up * (jumpVelocity - P1.velocity.y));
             P1.velocity += Vector3.up * (jumpVelocity - P1.velocity.y);
         if (Input.GetKey (Key_P2_Jump) && canJump (P2))
-            //P2.AddForce(Vector3.up * (jumpVelocity - P2.velocity.y));
             P2.velocity += Vector3.up * (jumpVelocity - P2.velocity.y);
 
         // Righting moment
@@ -88,9 +87,9 @@ public class PlayerController : MonoBehaviour {
     // 1 = right, -1 = left, 0 = none
     float horizontal (int player) {
         if(player == 1) {
-            return maxSpeed * ((Input.GetKey (Key_P1_Left) ? -1f : 0f) + (Input.GetKey (Key_P1_Right) ? 1f : 0f));
+            return maxSpeed * ((Input.GetKey (Key_P1_Left) ? -1f : 0f) + (Input.GetKey (Key_P1_Right) ? 1f : 0f)) * SpeedMultiplierP1;
         } else {
-            return maxSpeed * ((Input.GetKey (Key_P2_Left) ? -1f : 0f) + (Input.GetKey (Key_P2_Right) ? 1f : 0f));
+            return maxSpeed * ((Input.GetKey (Key_P2_Left) ? -1f : 0f) + (Input.GetKey (Key_P2_Right) ? 1f : 0f)) * SpeedMultiplierP2;
         }
     }
 }
