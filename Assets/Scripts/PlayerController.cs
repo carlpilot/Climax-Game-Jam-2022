@@ -133,6 +133,18 @@ public class PlayerController : MonoBehaviour {
             SpeedBoostP2 = temp_sb1;
             JumpBoostP2 = temp_jb1;
         }
+
+        // Particles
+        var P1Particles = 0f;
+        if (canJump(P1)) P1Particles = Mathf.Abs(P1.velocity.x);
+        var P2Particles = 0f;
+        if (canJump(P2)) P2Particles = Mathf.Abs(P2.velocity.x);
+        var P1PS = P1.gameObject.GetComponentInChildren<ParticleSystem>();
+        var P2PS = P2.gameObject.GetComponentInChildren<ParticleSystem>();
+        var P1E = P1PS.emission;;
+        var P2E = P2PS.emission;;
+        P1E.rateOverTime = P1Particles;
+        P2E.rateOverTime = P2Particles;
     }
 
     bool canJump (Rigidbody g) {
