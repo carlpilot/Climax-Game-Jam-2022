@@ -9,10 +9,10 @@ public class JumpBoost : MonoBehaviour
         var pc = col.gameObject.transform.parent.gameObject.GetComponent<PlayerController>();
         if (pc.P1 == col.gameObject.GetComponent<Rigidbody>()){
           // Player 1
-          pc.SpeedMultiplierP1 = 2;
+          pc.SpeedBoostP1 = 2;
         } else{
           // Player 2
-          pc.SpeedMultiplierP1 = 2;
+          pc.SpeedBoostP2 = 2;
         }
         Destroy(this.gameObject);
       }
