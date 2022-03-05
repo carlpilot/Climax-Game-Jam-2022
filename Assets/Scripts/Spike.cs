@@ -19,6 +19,7 @@ public class Spike : MonoBehaviour
     void OnTriggerEnter(Collider col){
       if (col.gameObject.tag == "Chain"){
         Destroy(col.gameObject);
+        FindObjectOfType<GameManager>().Lose();
       }
     }
 }
