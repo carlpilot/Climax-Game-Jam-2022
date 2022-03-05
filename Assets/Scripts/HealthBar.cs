@@ -12,6 +12,16 @@ public class HealthBar : MonoBehaviour
     public Sprite empty;
     public Sprite red, blue, halfRed, halfBlue;
 
+    Color colourRed;
+    Color colourBlue;
+
+    private void Start () {
+        colourRed = new Color (PlayerPrefs.GetFloat ("R1"), PlayerPrefs.GetFloat ("G1"), PlayerPrefs.GetFloat ("B1"));
+        colourBlue = new Color (PlayerPrefs.GetFloat ("R2"), PlayerPrefs.GetFloat ("G2"), PlayerPrefs.GetFloat ("B2"));
+        RH1.color = colourRed; RH2.color = colourRed; RH3.color = colourRed;
+        BH1.color = colourBlue; BH2.color = colourBlue; BH3.color = colourBlue;
+    }
+
     public void SetHealth (int healthR, int healthB) {
         RH1.sprite = healthR > 1 ? red : healthR > 0 ? halfRed : empty;
         RH2.sprite = healthR > 3 ? red : healthR > 2 ? halfRed : empty;
