@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public PlayerHealth health;
+    PlayerController pc;
+    PlayerHealth he;
     public Transform Player1, Player2;
     public MeshRenderer Player1Mesh, Player2Mesh, Player1Torus, Player2Torus;
 
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
     public static int level { get => SceneManager.GetActiveScene ().buildIndex; }
 
     private void Start () {
+        pc = FindObjectOfType<PlayerController> ();
+        he = FindObjectOfType<PlayerHealth> ();
         timer = FindObjectOfType<Timer> ();
         Color colour1 = new Color (PlayerPrefs.GetFloat ("R1"), PlayerPrefs.GetFloat ("G1"), PlayerPrefs.GetFloat ("B1"));
         Color colour2 = new Color (PlayerPrefs.GetFloat ("R2"), PlayerPrefs.GetFloat ("G2"), PlayerPrefs.GetFloat ("B2"));
@@ -32,7 +35,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update () {
-        if( health.health1 <= 0 || health.health2 <= 0 ||
+        if( he.health1 <= 0 || he.health2 <= 0 ||
             Player1.position.y < voidCutoff || Player2.position.y < voidCutoff) {
             Lose ();
         }
@@ -51,16 +54,17 @@ public class GameManager : MonoBehaviour
 
     public void Lose () {
         if (hasEnded) return; // don't lose twice
-        print ("Died");
         hasEnded = true;
         gameOverScreen.gameObject.SetActive (true);
         gameOverScreen.GetComponent<GameOverScreen> ().Trigger ();
         EndGame ();
+        pc.enableRighting = false;
     }
 
     public void EndGame () {
         timer.StopTime ();
         if (!timer.extended) timer.ToggleTimerExtended (false);
+        pc.enableMovement = false;
     }
 
     public void NextLevel () => SceneManager.LoadScene (level + 1);

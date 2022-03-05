@@ -50,6 +50,9 @@ public class PlayerController : MonoBehaviour {
     public float SpeedBoostP2 = 1.0f;
     public float JumpBoostP1 = 1.0f;
     public float JumpBoostP2 = 1.0f;
+    public bool enableMovement = true;
+    public bool enableJumping = true;
+    public bool enableRighting = true;
 
     private void Start () {
         startface1 = PlayerModel1.localEulerAngles.y;
@@ -71,10 +74,12 @@ public class PlayerController : MonoBehaviour {
         }
 
         // Vertical motion
-        if (Input.GetKey (Key_P1_Jump) && canJump (P1))
-            P1.velocity += Vector3.up * (jumpVelocity - P1.velocity.y) * JumpBoostP1;
-        if (Input.GetKey (Key_P2_Jump) && canJump (P2))
-            P2.velocity += Vector3.up * (jumpVelocity - P2.velocity.y) * JumpBoostP2;
+        if (enableJumping) {
+            if (Input.GetKey (Key_P1_Jump) && canJump (P1))
+                P1.velocity += Vector3.up * (jumpVelocity - P1.velocity.y) * JumpBoostP1;
+            if (Input.GetKey (Key_P2_Jump) && canJump (P2))
+                P2.velocity += Vector3.up * (jumpVelocity - P2.velocity.y) * JumpBoostP2;
+        }
 
         // Crouch gravity
         if (Input.GetKey (Key_P1_Crouch))
@@ -83,12 +88,14 @@ public class PlayerController : MonoBehaviour {
             P2.AddForce (Vector3.up * P2.mass * -9.81f * (crouchGravityFactor - 1.0f));
 
         // Righting moment
-        if (groundContact(P1))
-            P1.AddTorque (restoringMoment * P1.mass * Vector3.forward * Vector3.SignedAngle (P1.transform.up, Vector3.up, Vector3.forward));
-        if (groundContact (P2))
-            P2.AddTorque (restoringMoment * P2.mass * Vector3.forward * Vector3.SignedAngle (P2.transform.up, Vector3.up, Vector3.forward));
-        P1.AddTorque (basicRestoringMoment * P1.mass * Vector3.forward * Vector3.SignedAngle (P1.transform.up, Vector3.up, Vector3.forward));
-        P2.AddTorque (basicRestoringMoment * P2.mass * Vector3.forward * Vector3.SignedAngle (P2.transform.up, Vector3.up, Vector3.forward));
+        if (enableRighting) {
+            if (groundContact (P1))
+                P1.AddTorque (restoringMoment * P1.mass * Vector3.forward * Vector3.SignedAngle (P1.transform.up, Vector3.up, Vector3.forward));
+            if (groundContact (P2))
+                P2.AddTorque (restoringMoment * P2.mass * Vector3.forward * Vector3.SignedAngle (P2.transform.up, Vector3.up, Vector3.forward));
+            P1.AddTorque (basicRestoringMoment * P1.mass * Vector3.forward * Vector3.SignedAngle (P1.transform.up, Vector3.up, Vector3.forward));
+            P2.AddTorque (basicRestoringMoment * P2.mass * Vector3.forward * Vector3.SignedAngle (P2.transform.up, Vector3.up, Vector3.forward));
+        }
 
         // Ground friction
         float modfric1 = groundFriction * (Mathf.Abs (ha1.x) > 0.05f ? 0 : 1) * (Input.GetKey (Key_P1_Crouch) ? crouchFrictionFactor : 1.0f);
@@ -143,6 +150,7 @@ public class PlayerController : MonoBehaviour {
 
     // 1 = right, -1 = left, 0 = none
     float horizontal (int player) {
+        if (!enableMovement) return 0;
         if(player == 1) {
             return maxSpeed * ((Input.GetKey (Key_P1_Left) ? -1f : 0f) + (Input.GetKey (Key_P1_Right) ? 1f : 0f)) * SpeedBoostP1;
         } else {
