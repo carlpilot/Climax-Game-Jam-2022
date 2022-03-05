@@ -8,9 +8,9 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
 
-    string[] adjectives = { "steamy", "spicy", "salty", "delectable", "many", "tinned"};
-    string[] typesOfBean = { "baked", "runner", "kidney", "green", "black", "white", "cowboy", "adzuki", "edamame", "lima" };
-    string[] beanWords = { "bean", "beans", "frijoles", "haricot"};
+    static string[] adjectives = { "steamy", "spicy", "salty", "delectable", "many", "tinned"};
+    static string[] typesOfBean = { "baked", "runner", "kidney", "green", "black", "white", "cowboy", "adzuki", "edamame", "lima" };
+    static string[] beanWords = { "bean", "beans", "frijoles", "haricot"};
 
     public GameObject player1;
     public GameObject player2;
@@ -76,7 +76,7 @@ public class MainMenu : MonoBehaviour
 
     public void NewUsername () => usernameInput.text = GenerateUsername ();
 
-    public string GenerateUsername() {
+    public static string GenerateUsername() {
         string u = adjectives[Random.Range (0, adjectives.Length)] + typesOfBean[Random.Range (0, typesOfBean.Length)] + beanWords[Random.Range (0, beanWords.Length)] + Random.Range (100, 999);
         return u.Length <= 25 ? u : GenerateUsername ();
     }

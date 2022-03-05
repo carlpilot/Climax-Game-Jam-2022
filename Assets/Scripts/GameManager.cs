@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
         Player2Mesh.material.color = colour2;
         Player1Torus.material.color = colour1 / 2;
         Player2Torus.material.color = colour2 / 2;
+        if (!PlayerPrefs.HasKey ("Username")) PlayerPrefs.SetString ("Username", MainMenu.GenerateUsername ());
     }
 
     private void Update () {
@@ -64,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel () => SceneManager.LoadScene (level + 1);
 
-    public void MainMenu () => SceneManager.LoadScene (0);
+    public void ToMainMenu () => SceneManager.LoadScene (0);
 
     public void ReloadLevel () => gameOverScreen.RestartScene ();
 

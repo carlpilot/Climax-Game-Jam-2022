@@ -335,10 +335,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 63
   jumpVelocity: 10
-  jumpMaxGroundDist: 1.25
+  jumpMaxGroundDist: 1.3
   groundFriction: 1
   restoringMoment: 3
   basicRestoringMoment: 0.1
+  crouchFrictionFactor: 50
+  crouchGravityFactor: 2
   SpeedMultiplierP1: 1
   SpeedMultiplierP2: 1
 --- !u!114 &3584370609462143617
@@ -1434,7 +1436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8208108390902276183, guid: 0c827a3d87bd2db46bde944c490029b8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MainMenu
+      value: ToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 8208108390902276183, guid: 0c827a3d87bd2db46bde944c490029b8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
