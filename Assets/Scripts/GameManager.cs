@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public Transform Player1, Player2;
     public MeshRenderer Player1Mesh, Player2Mesh, Player1Torus, Player2Torus;
 
-    public GameObject winScreen;
+    public WinScreen winScreen;
     public GameObject gameOverScreen;
 
     public float voidCutoff = -10f; // player dies below this level
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     public void Win () {
         if (hasEnded) return;
         hasEnded = true;
-        winScreen.SetActive (true);
+        winScreen.gameObject.SetActive (true);
         winScreen.GetComponent<WinScreen> ().Trigger ();
     }
 
@@ -74,15 +74,15 @@ public class GameManager : MonoBehaviour
                     Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
                     break;
                 case UnityWebRequest.Result.Success:
-                    highscores = webRequest.downloadHandler.text;
-                    winScreen.load(highscores);
+                    var highscores = webRequest.downloadHandler.text;
+                    winScreen.LoadLeaderboard (highscores);
                     break;
             }    
         }
     }
 
     public void putHighScore(string username, float time) {
-        StartCoroutine(putHSHelper("http://dreamlo.com/lb/tP95lQz0CkyNk7cR_YPPuAkN7wCkOxIkCu7WjI8E345g/add/"+ username + "/" + ((str) time)));
+        StartCoroutine(putHSHelper("http://dreamlo.com/lb/tP95lQz0CkyNk7cR_YPPuAkN7wCkOxIkCu7WjI8E345g/add/"+ username + "/" + time));
     }
 
     public IEnumerator putHSHelper(string uri) {
