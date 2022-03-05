@@ -84,9 +84,17 @@ public class PlayerController : MonoBehaviour {
         P2.GetComponent<Collider> ().material.staticFriction = modfric2;
         P2.GetComponent<Collider> ().material.dynamicFriction = modfric2;
 
+        // Override rotation direction for high horizontal velocities
+        if (P1.velocity.magnitude > maxSpeed / 2f)
+            facing1 = P1.velocity.x > 0 ? 1 : -1;
+        if (P2.velocity.magnitude > maxSpeed / 2f)
+            facing2 = P2.velocity.x > 0 ? 1 : -1;
+        if (P1.velocity.magnitude < 0.1f) facing1 = 2;
+        if (P2.velocity.magnitude < 0.1f) facing2 = 2;
+
         // Rotate to face
-        Quaternion targetRotation1 = Quaternion.Euler (Vector3.up * (startface1 + (facing1 == 1 ? 0 : rotationToFace)));
-        Quaternion targetRotation2 = Quaternion.Euler (Vector3.up * (startface2 + (facing2 == 1 ? 0 : rotationToFace)));
+        Quaternion targetRotation1 = Quaternion.Euler (Vector3.up * (startface1 + (1 - facing1) / 2f * rotationToFace));
+        Quaternion targetRotation2 = Quaternion.Euler (Vector3.up * (startface2 + (1 - facing2) / 2f * rotationToFace));
         Quaternion p1rot = Quaternion.Slerp (PlayerModel1.localRotation, targetRotation1, 0.1f);
         Quaternion p2rot = Quaternion.Slerp (PlayerModel2.localRotation, targetRotation2, 0.1f);
         PlayerModel1.localRotation = p1rot;
