@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour {
 
     [Header("Players")]
     public Rigidbody P1, P2;
+    public Transform PlayerModel1, PlayerModel2;
+    int facing1 = 1, facing2 = 1; // 1 = right, -1 = left
+    float startface1, startface2;
+    public float rotationToFace = 180; // how much to rotate on change of face
 
     [Header("Speed and Acceleration")]
     public float maxSpeed = 3.0f; // m/s
@@ -38,15 +42,24 @@ public class PlayerController : MonoBehaviour {
     public float SpeedMultiplierP1 = 1.0f;
     public float SpeedMultiplierP2 = 1.0f;
 
+    private void Start () {
+        startface1 = PlayerModel1.localEulerAngles.y;
+        startface2 = PlayerModel2.localEulerAngles.y;
+    }
+
     private void FixedUpdate () {
 
         // Horizontal motion
         Vector3 ha1 = Vector3.right * horizontal (1) * Mathf.Clamp01 (maxSpeed - P1.velocity.magnitude) * acceleration;
         Vector3 ha2 = Vector3.right * horizontal (2) * Mathf.Clamp01 (maxSpeed - P2.velocity.magnitude) * acceleration;
-        if(clearLeft(P1) && ha1.x < 0 || clearRight(P1) && ha1.x > 0)
+        if (clearLeft (P1) && ha1.x < 0 || clearRight (P1) && ha1.x > 0) {
             P1.velocity += ha1 * Time.fixedDeltaTime;
-        if (clearLeft (P2) && ha2.x < 0 || clearRight (P2) && ha2.x > 0)
+            facing1 = ha1.x > 0 ? 1 : -1;
+        }
+        if (clearLeft (P2) && ha2.x < 0 || clearRight (P2) && ha2.x > 0) {
             P2.velocity += ha2 * Time.fixedDeltaTime;
+            facing2 = ha2.x > 0 ? 1 : -1;
+        }
 
         // Vertical motion
         if (Input.GetKey (Key_P1_Jump) && canJump (P1))
@@ -69,6 +82,14 @@ public class PlayerController : MonoBehaviour {
         P1.GetComponent<Collider> ().material.dynamicFriction = modfric1;
         P2.GetComponent<Collider> ().material.staticFriction = modfric2;
         P2.GetComponent<Collider> ().material.dynamicFriction = modfric2;
+
+        // Rotate to face
+        Quaternion targetRotation1 = Quaternion.Euler (Vector3.up * (startface1 + (facing1 == 1 ? 0 : rotationToFace)));
+        Quaternion targetRotation2 = Quaternion.Euler (Vector3.up * (startface2 + (facing2 == 1 ? 0 : rotationToFace)));
+        Quaternion p1rot = Quaternion.Slerp (PlayerModel1.localRotation, targetRotation1, 0.1f);
+        Quaternion p2rot = Quaternion.Slerp (PlayerModel2.localRotation, targetRotation2, 0.1f);
+        PlayerModel1.localRotation = p1rot;
+        PlayerModel2.localRotation = p2rot;
     }
 
     bool canJump (Rigidbody g) {
