@@ -39,6 +39,8 @@ public class Timer : MonoBehaviour
 
     public bool extended { get => isExtended; }
 
+    public float time { get => count; }
+
     public static string TimeFormat (float t) {
         int minutes = Mathf.FloorToInt (t / 60.0f);
         int seconds = Mathf.FloorToInt (t - 60.0f * minutes);

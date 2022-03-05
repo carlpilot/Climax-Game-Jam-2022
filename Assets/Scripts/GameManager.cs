@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     bool hasEnded = false;
 
+    public static int level { get => SceneManager.GetActiveScene ().buildIndex; }
+
     private void Start () {
         Color colour1 = new Color (PlayerPrefs.GetFloat ("R1"), PlayerPrefs.GetFloat ("G1"), PlayerPrefs.GetFloat ("B1"));
         Color colour2 = new Color (PlayerPrefs.GetFloat ("R2"), PlayerPrefs.GetFloat ("G2"), PlayerPrefs.GetFloat ("B2"));
@@ -23,9 +26,6 @@ public class GameManager : MonoBehaviour
         Player2Mesh.material.color = colour2;
         Player1Torus.material.color = colour1 / 2;
         Player2Torus.material.color = colour2 / 2;
-
-        // REMOVE
-        Win ();
     }
 
     private void Update () {
@@ -53,6 +53,12 @@ public class GameManager : MonoBehaviour
         t.StopTime ();
         if(!t.extended) t.ToggleTimerExtended (false);
     }
+
+    public void NextLevel () => SceneManager.LoadScene (level + 1);
+
+    public void MainMenu () => SceneManager.LoadScene (0);
+
+    public void ReloadLevel () => GameOverScreen.RestartScene ();
 
     public void getHighScores() {
         StartCoroutine(getHSHelper("http://dreamlo.com/lb/622358b4778d3c8cfc1502d1/pipe-seconds-asc"));
@@ -85,10 +91,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void putHighScore(string username, float time) {
+    public void putHighScore(float time) {
         int timeMS = Mathf.FloorToInt (time * 1000);
         int score = 10000000 - timeMS; // lower time = higher score
-        StartCoroutine(putHSHelper("http://dreamlo.com/lb/tP95lQz0CkyNk7cR_YPPuAkN7wCkOxIkCu7WjI8E345g/add/"+ username + "/" + score + "/" + timeMS));
+        StartCoroutine(putHSHelper("http://dreamlo.com/lb/tP95lQz0CkyNk7cR_YPPuAkN7wCkOxIkCu7WjI8E345g/add/"+ PlayerPrefs.GetString("Username") + "/" + score + "/" + timeMS));
     }
 
     public IEnumerator putHSHelper(string uri) {
