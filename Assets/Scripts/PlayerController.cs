@@ -48,10 +48,17 @@ public class PlayerController : MonoBehaviour {
             P2.velocity += ha2 * Time.fixedDeltaTime;
 
         // Vertical motion
+<<<<<<< Updated upstream
         if (Input.GetKey (Key_P1_Jump) && canJump (P1))
             P1.velocity += Vector3.up * (jumpVelocity - P1.velocity.y);
         if (Input.GetKey (Key_P2_Jump) && canJump (P2))
             P2.velocity += Vector3.up * (jumpVelocity - P2.velocity.y);
+=======
+        if (Input.GetKeyDown (Key_P1_Jump) && canJump (P1))
+            P1.AddForce(Vector3.up * (jumpVelocity * 2), ForceMode.Impulse);
+        if (Input.GetKeyDown (Key_P2_Jump) && canJump (P2))
+            P2.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
+>>>>>>> Stashed changes
 
         // Righting moment
         if (groundContact(P1))
