@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 3584370609161546796}
   m_Layer: 3
   m_Name: Player2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,6 +232,7 @@ MonoBehaviour:
   jumpMaxGroundDist: 1.25
   groundFriction: 1
   restoringMoment: 3
+  basicRestoringMoment: 0.1
   SpeedMultiplierP1: 1
   SpeedMultiplierP2: 1
 --- !u!114 &3584370609462143617
@@ -263,7 +264,7 @@ GameObject:
   - component: {fileID: 3584370609833013587}
   m_Layer: 3
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
