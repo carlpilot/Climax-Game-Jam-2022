@@ -815,7 +815,7 @@ MonoBehaviour:
   Player1Torus: {fileID: 7232403712565081017}
   Player2Torus: {fileID: 7232403713102901840}
   winScreen: {fileID: 2804567962834828332}
-  gameOverScreen: {fileID: 3414193464078131735}
+  gameOverScreen: {fileID: 3414193464078131739}
   voidCutoff: -10
 --- !u!1001 &60736665
 PrefabInstance:
@@ -2046,8 +2046,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1637276281056805462, guid: 9ca1b4cb5c5b53f499b045b598c1887c, type: 3}
   m_PrefabInstance: {fileID: 4168469340460818496}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3414193464078131735 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1637276281056805463, guid: 9ca1b4cb5c5b53f499b045b598c1887c, type: 3}
+--- !u!114 &3414193464078131739 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1637276281056805467, guid: 9ca1b4cb5c5b53f499b045b598c1887c, type: 3}
   m_PrefabInstance: {fileID: 4168469340460818496}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319dbc9a694dd3246bb9556cd10467e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

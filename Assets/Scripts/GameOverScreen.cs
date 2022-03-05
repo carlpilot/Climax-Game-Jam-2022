@@ -11,7 +11,7 @@ public class GameOverScreen : MonoBehaviour
         Invoke ("RestartScene", restartDelay);
     }
 
-    public static void RestartScene () {
+    public void RestartScene () {
         // Reload current scene
         SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
     }
