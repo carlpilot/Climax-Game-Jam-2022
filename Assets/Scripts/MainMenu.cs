@@ -23,10 +23,10 @@ public class MainMenu : MonoBehaviour
     public Slider B2;
 
     public TMP_InputField usernameInput;
-    HealthBar hb;
+    //HealthBar hb;
 
     public void Start() {
-        hb = FindObjectOfType<HealthBar> ();
+        //hb = FindObjectOfType<HealthBar> ();
         var renderer1 = player1.GetComponentsInChildren<Renderer>()[1];
         var renderer2 = player2.GetComponentsInChildren<Renderer>()[1];
         if (!PlayerPrefs.HasKey ("R1")) {
@@ -64,8 +64,8 @@ public class MainMenu : MonoBehaviour
         renderer2.material.color = colour2;
         ring1.material.color = colour1 / 2;
         ring2.material.color = colour2 / 2;
-        hb.RH1.color = colour1; hb.RH2.color = colour1; hb.RH3.color = colour1;
-        hb.BH1.color = colour2; hb.BH2.color = colour2; hb.BH3.color = colour2;
+        //hb.RH1.color = colour1; hb.RH2.color = colour1; hb.RH3.color = colour1;
+        //hb.BH1.color = colour2; hb.BH2.color = colour2; hb.BH3.color = colour2;
     }
 
     public void playGame() {
