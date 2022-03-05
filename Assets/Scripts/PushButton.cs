@@ -33,7 +33,7 @@ public class PushButton : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player"){
+        if (other.gameObject.tag == "Player" && !persist){
           UnPush();
         }
     }
