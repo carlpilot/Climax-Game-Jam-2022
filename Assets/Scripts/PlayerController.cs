@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour {
     public float basicRestoringMoment = 0.1f; // always on
 
     [Header ("Crouching")]
+    public float crouchSpeedMultiplier = 0.5f;
     public float crouchFrictionFactor = 10.0f;
     public float crouchGravityFactor = 1.5f;
 
@@ -50,6 +51,9 @@ public class PlayerController : MonoBehaviour {
     public float SpeedBoostP2 = 1.0f;
     public float JumpBoostP1 = 1.0f;
     public float JumpBoostP2 = 1.0f;
+    public bool enableMovement = true;
+    public bool enableJumping = true;
+    public bool enableRighting = true;
 
     private void Start () {
         startface1 = PlayerModel1.localEulerAngles.y;
@@ -59,8 +63,10 @@ public class PlayerController : MonoBehaviour {
     private void FixedUpdate () {
 
         // Horizontal motion
-        Vector3 ha1 = Vector3.right * horizontal (1) * Mathf.Clamp01 (maxSpeed * SpeedBoostP1 - P1.velocity.magnitude) * acceleration;
-        Vector3 ha2 = Vector3.right * horizontal (2) * Mathf.Clamp01 (maxSpeed * SpeedBoostP2 - P2.velocity.magnitude) * acceleration;
+        float cs1 = Input.GetKey (Key_P1_Crouch) ? crouchSpeedMultiplier : 1.0f;
+        float cs2 = Input.GetKey (Key_P2_Crouch) ? crouchSpeedMultiplier : 1.0f;
+        Vector3 ha1 = Vector3.right * horizontal (1) * Mathf.Clamp01 (maxSpeed * SpeedBoostP1 * cs1 - P1.velocity.magnitude) * acceleration;
+        Vector3 ha2 = Vector3.right * horizontal (2) * Mathf.Clamp01 (maxSpeed * SpeedBoostP2 * cs2 - P2.velocity.magnitude) * acceleration;
         if (clearLeft (P1) && ha1.x < 0 || clearRight (P1) && ha1.x > 0) {
             P1.velocity += ha1 * Time.fixedDeltaTime;
             facing1 = ha1.x > 0 ? 1 : -1;
@@ -71,10 +77,12 @@ public class PlayerController : MonoBehaviour {
         }
 
         // Vertical motion
-        if (Input.GetKey (Key_P1_Jump) && canJump (P1))
-            P1.velocity += Vector3.up * (jumpVelocity - P1.velocity.y) * JumpBoostP1;
-        if (Input.GetKey (Key_P2_Jump) && canJump (P2))
-            P2.velocity += Vector3.up * (jumpVelocity - P2.velocity.y) * JumpBoostP2;
+        if (enableJumping) {
+            if (Input.GetKey (Key_P1_Jump) && canJump (P1))
+                P1.velocity += Vector3.up * (jumpVelocity - P1.velocity.y) * JumpBoostP1;
+            if (Input.GetKey (Key_P2_Jump) && canJump (P2))
+                P2.velocity += Vector3.up * (jumpVelocity - P2.velocity.y) * JumpBoostP2;
+        }
 
         // Crouch gravity
         if (Input.GetKey (Key_P1_Crouch))
@@ -83,12 +91,14 @@ public class PlayerController : MonoBehaviour {
             P2.AddForce (Vector3.up * P2.mass * -9.81f * (crouchGravityFactor - 1.0f));
 
         // Righting moment
-        if (groundContact(P1))
-            P1.AddTorque (restoringMoment * P1.mass * Vector3.forward * Vector3.SignedAngle (P1.transform.up, Vector3.up, Vector3.forward));
-        if (groundContact (P2))
-            P2.AddTorque (restoringMoment * P2.mass * Vector3.forward * Vector3.SignedAngle (P2.transform.up, Vector3.up, Vector3.forward));
-        P1.AddTorque (basicRestoringMoment * P1.mass * Vector3.forward * Vector3.SignedAngle (P1.transform.up, Vector3.up, Vector3.forward));
-        P2.AddTorque (basicRestoringMoment * P2.mass * Vector3.forward * Vector3.SignedAngle (P2.transform.up, Vector3.up, Vector3.forward));
+        if (enableRighting) {
+            if (groundContact (P1))
+                P1.AddTorque (restoringMoment * P1.mass * Vector3.forward * Vector3.SignedAngle (P1.transform.up, Vector3.up, Vector3.forward));
+            if (groundContact (P2))
+                P2.AddTorque (restoringMoment * P2.mass * Vector3.forward * Vector3.SignedAngle (P2.transform.up, Vector3.up, Vector3.forward));
+            P1.AddTorque (basicRestoringMoment * P1.mass * Vector3.forward * Vector3.SignedAngle (P1.transform.up, Vector3.up, Vector3.forward));
+            P2.AddTorque (basicRestoringMoment * P2.mass * Vector3.forward * Vector3.SignedAngle (P2.transform.up, Vector3.up, Vector3.forward));
+        }
 
         // Ground friction
         float modfric1 = groundFriction * (Mathf.Abs (ha1.x) > 0.05f ? 0 : 1) * (Input.GetKey (Key_P1_Crouch) ? crouchFrictionFactor : 1.0f);
@@ -143,6 +153,7 @@ public class PlayerController : MonoBehaviour {
 
     // 1 = right, -1 = left, 0 = none
     float horizontal (int player) {
+        if (!enableMovement) return 0;
         if(player == 1) {
             return maxSpeed * ((Input.GetKey (Key_P1_Left) ? -1f : 0f) + (Input.GetKey (Key_P1_Right) ? 1f : 0f)) * SpeedBoostP1;
         } else {
