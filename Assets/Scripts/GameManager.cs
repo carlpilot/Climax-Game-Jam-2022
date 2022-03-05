@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class GameManager : MonoBehaviour
 {
@@ -47,5 +48,40 @@ public class GameManager : MonoBehaviour
         Timer t = FindObjectOfType<Timer> ();
         t.StopTime ();
         if(!t.extended) t.ToggleTimerExtended (false);
+    }
+
+    public void getHighScores() {
+        StartCoroutine(getHSHelper("http://dreamlo.com/lb/622358b4778d3c8cfc1502d1/quote-seconds-asc"));
+    }
+
+    public IEnumerator getHSHelper(string uri) {
+        var result = "";
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+        {
+            // Request and wait for the desired page.
+            yield return webRequest.SendWebRequest();
+
+            string[] pages = uri.Split('/');
+            int page = pages.Length - 1;
+
+            switch (webRequest.result)
+            {
+                case UnityWebRequest.Result.ConnectionError:
+                case UnityWebRequest.Result.DataProcessingError:
+                    Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.ProtocolError:
+                    Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                    break;
+                case UnityWebRequest.Result.Success:
+                    highscores = webRequest.downloadHandler.text;
+                    winScreen.load(highscores);
+                    break;
+            }    
+        }
+    }
+
+    public void putHighScore(string username, float time) {
+
     }
 }
