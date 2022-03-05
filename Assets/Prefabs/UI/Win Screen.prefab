@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 10
   m_Viewport: {fileID: 1091908442134656590}
   m_HorizontalScrollbar: {fileID: 2253967222433043641}
   m_VerticalScrollbar: {fileID: 9060537616239463436}
@@ -2208,6 +2208,10 @@ PrefabInstance:
     - target: {fileID: 2071167376994967131, guid: 5dbdcc50fb0398d4bac621e062f7afa6, type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2181250614434711849, guid: 5dbdcc50fb0398d4bac621e062f7afa6, type: 3}
+      propertyPath: m_fontSize
+      value: 56.85
       objectReference: {fileID: 0}
     - target: {fileID: 2181250614434711849, guid: 5dbdcc50fb0398d4bac621e062f7afa6, type: 3}
       propertyPath: m_fontColor.b

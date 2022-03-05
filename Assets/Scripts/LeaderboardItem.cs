@@ -8,7 +8,7 @@ public class LeaderboardItem : MonoBehaviour
 {
     public TMP_Text rank, username, time;
 
-    public void SetRank (int r) => rank.text = "" + r;
+    public void SetRank (int r) => rank.text = (r != -1) ? ("" + r) : "NR";
 
     public void SetUsername (string u) => username.text = u;
 
