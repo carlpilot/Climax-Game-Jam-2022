@@ -8,12 +8,12 @@ public class WinScreen : MonoBehaviour
 
     int level { get => SceneManager.GetActiveScene().buildIndex; }
 
-    void LoadLeaderboard () {
+    void LoadLeaderboard (string highscores) {
         // TODO
     }
 
     public void Trigger () {
-        LoadLeaderboard ();
+
     }
 
     public void NextLevel () => SceneManager.LoadScene (level + 1);
