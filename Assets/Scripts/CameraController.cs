@@ -15,6 +15,9 @@ public class CameraController : MonoBehaviour
     public float cameraZoomMult;
     public float minZoom = 3;
 
+    public float minX = 0f;
+    public float minHeight = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,5 +34,7 @@ public class CameraController : MonoBehaviour
       var targetPosition = target + (cameraOffset*zoomMult);
       transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * cameraFollowSpeed);
       transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(target-transform.position), Time.deltaTime * cameraLookSpeed);
+      if (transform.position.x < minX) transform.position = new Vector3(minX, transform.position.y, transform.position.z);
+      if (transform.position.y < minHeight) transform.position = new Vector3(transform.position.x, minHeight, transform.position.z);
     }
 }
