@@ -7,6 +7,8 @@ public class Icicle : MonoBehaviour
     PlayerController pc;
     PlayerHealth he;
 
+    public AudioSource shatterSound;
+
     // Start is called before the first frame update
     void Start() {
         pc = FindObjectOfType<PlayerController> ();
@@ -20,6 +22,8 @@ public class Icicle : MonoBehaviour
         } else if (other.collider.GetComponent<Rigidbody>() == pc.P2) {
             he.health2 -= 2;
         } else if (other.gameObject.tag == "Chain") {
+            AudioSource shatterSound2 = Instantiate(shatterSound);
+            shatterSound2.Play();
             Destroy(other.gameObject);
             FindObjectOfType<GameManager>().Lose();
         }
