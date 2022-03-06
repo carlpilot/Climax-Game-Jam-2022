@@ -12,10 +12,11 @@ public class rollCredits : MonoBehaviour
 
     void Update () {
         
-        transform.Translate(Vector3.up * Time.deltaTime);
+        transform.Translate(0, 2, 00);
         
-        if(transform.position.y >= 1.80f){
+        if(transform.position.y >= 4200){
             Destroy(gameObject);
         }
+    
     }
 }
