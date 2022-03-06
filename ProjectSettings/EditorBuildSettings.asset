@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelMechanical1.unity
     guid: 362b9e2a2aaae6895afd401f71296c8d
   - enabled: 1
+    path: Assets/Scenes/PlaneLevel.unity
+    guid: 500c72bd0beaef844843c9978456285a
+  - enabled: 1
     path: Assets/Scenes/LevelSelect.unity
     guid: eca574dba58e2614eb9a8f566f8f5c5d
   m_configObjects: {}
