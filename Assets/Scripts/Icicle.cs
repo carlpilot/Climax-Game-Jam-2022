@@ -31,7 +31,8 @@ public class Icicle : MonoBehaviour
         }*/
 
         // Destroy icicle and respawn
-        Debug.Log("AKJESKEJFHKPSJEFHKSJEF");
-        transform.position = new Vector3(x, y, z);
+        GameObject instantiatedObj = Instantiate(this.gameObject);
+        Destroy(this.gameObject);
+        instantiatedObj.transform.position = new Vector3(this.x, this.y, this.z);
     }
 }
