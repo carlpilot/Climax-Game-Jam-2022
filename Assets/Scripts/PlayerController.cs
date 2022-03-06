@@ -220,4 +220,17 @@ public class PlayerController : MonoBehaviour {
         ring.material.color = Color.black;
     }
 
+    public void toggle_burn(int player, bool b) {
+        var PSP = P2.gameObject.GetComponentsInChildren<ParticleSystem>()[1];
+        if (player == 1) {
+            PSP = P1.gameObject.GetComponentsInChildren<ParticleSystem>()[1];
+        }
+        var P1E = PSP.emission;;
+        if (b) {
+            P1E.rateOverTime = 10;
+        } else {
+            P1E.rateOverTime = 0;
+        }
+    }
+
 }
