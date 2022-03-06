@@ -186,7 +186,7 @@ public class PlayerController : MonoBehaviour {
         RaycastHit hit1, hit2;
         if (Physics.Raycast (P1.transform.position, Vector3.down, out hit1, jumpMaxGroundDist, raycastLayerMask)) {
             if (hit1.transform.parent == null) return;
-            MovingPlatform mp = hit1.transform.parent.GetComponent<MovingPlatform> () != null ? hit1.transform.parent.GetComponent<MovingPlatform> () : hit1.transform.parent.parent.GetComponent<MovingPlatform> ();
+            MovingPlatform mp = hit1.transform.parent.GetComponent<MovingPlatform> () != null ? hit1.transform.parent.GetComponent<MovingPlatform> () : (hit1.transform.parent.parent != null ? hit1.transform.parent.parent.GetComponent<MovingPlatform> () : null);
             if (mp != null)
                 P1.MovePosition (P1.transform.position + mp.Velocity * Time.fixedDeltaTime);
         }
