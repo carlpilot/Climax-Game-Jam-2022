@@ -33,7 +33,7 @@ public class MainMenu : MonoBehaviour
         var renderer2 = player2.GetComponentsInChildren<Renderer>()[1];
         if (!PlayerPrefs.HasKey ("R1")) {
             R1.value = 0.4f; G1.value = 0.5f; B1.value = 0.9f;
-            R2.value = 0.8f; G2.value = 0.7f; B2.value = 0.4f;
+            R2.value = 0.9f; G2.value = 0.6f; B2.value = 0.3f;
         } else {
             R1.value = PlayerPrefs.GetFloat ("R1");
             G1.value = PlayerPrefs.GetFloat ("G1");
