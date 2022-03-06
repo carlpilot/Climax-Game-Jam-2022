@@ -2,17 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class PlaneController : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+{   
+
+    private bool isActive;
+    public Rigidbody planeBody;
+
+    public Vector3 zoomDirection;
+    private bool zoomToggle;
+    
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        // Zoom toggle
+        if (isActive){
+            if (Input.GetKeyDown(KeyCode.Space)){
+                zoomToggle = true;
+            }
+        }   
+
+        if (Input.GetKeyUp(KeyCode.Space)){
+            zoomToggle = false;
+        }
+
+        // Actual zoom
+        if (zoomToggle){
+            zoom();
+        }
         
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {   
+        Debug.Log("Touch");
+        isActive = true;
+    }
+
+    private void OnTriggerExit(Collider other){
+        Debug.Log("Leave");
+        isActive = false;
+    }
+
+    private void zoom(){
+        Debug.Log("Zoom!");
+        planeBody.AddForce(zoomDirection);
     }
 }
