@@ -5,6 +5,7 @@ using UnityEngine;
 public class PushButton : MonoBehaviour
 {
   public GameObject unPushedButton;
+  public GameObject unPushedButtonPersist;
   public GameObject pushedButton;
   public bool isPushed{get; private set;}
   public bool persist;
@@ -12,6 +13,11 @@ public class PushButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      if(persist){
+      	unPushedButton.SetActive(false);
+      	unPushedButton = unPushedButtonPersist;
+      	unPushedButton.SetActive(true);
+      } 
       touchingObjects = new List<GameObject>();
     }
 
