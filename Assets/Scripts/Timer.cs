@@ -10,9 +10,10 @@ public class Timer : MonoBehaviour
     public RectTransform TimerDropdownArrow;
 
     bool isExtended = true;
-    bool counting = true;
+    bool counting = false;
 
     float count = 0;
+    float startTime = 0;
 
     private void Start () {
         if (!PlayerPrefs.HasKey ("TimerExtended")) PlayerPrefs.SetInt ("TimerExtended", 1);
@@ -20,13 +21,18 @@ public class Timer : MonoBehaviour
     }
 
     private void Update () {
-        if(counting) count = Time.timeSinceLevelLoad;
+        if(counting) count = Time.timeSinceLevelLoad - startTime;
         GetComponent<Text> ().text = TimeFormat (count);
     }
 
-    public void StopTime() {
-        counting = false;
+    public void StartTime () {
+        counting = true;
+        startTime = Time.timeSinceLevelLoad;
     }
+
+    public void StopTime() => counting = false;
+
+    public bool isCounting { get => counting; }
 
     public void ToggleTimerExtended () => ToggleTimerExtended (true);
 

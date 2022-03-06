@@ -60,9 +60,16 @@ public class PlayerController : MonoBehaviour {
     public AudioSource loopingStepSound;
     public AudioSource jumpSound;
 
+    Timer t;
+
     private void Start () {
         startface1 = PlayerModel1.localEulerAngles.y;
         startface2 = PlayerModel2.localEulerAngles.y;
+        t = FindObjectOfType<Timer> ();
+    }
+
+    private void Update () {
+        if (!t.isCounting && t.time < 1 && Input.anyKey) t.StartTime ();
     }
 
     private void FixedUpdate () {

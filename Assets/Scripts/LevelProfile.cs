@@ -20,7 +20,7 @@ public class LevelProfile : MonoBehaviour
         ls = FindObjectOfType<LevelSelect> ();
         levelTitle.text = "Level " + level;
         StartCoroutine(LoadLeaderboard());
-        icon.texture = ls.icons[level - 1];
+        icon.texture = ls.icons.Length >= level ? ls.icons[level - 1] : null;
         if(PlayerPrefs.GetInt("LastLevelCompleted") + 1 < level) {
             playButton.enabled = false;
             lockIcon.SetActive (true);
