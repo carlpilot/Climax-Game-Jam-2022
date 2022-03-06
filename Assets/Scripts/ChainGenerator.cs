@@ -30,7 +30,7 @@ public class ChainGenerator : MonoBehaviour
 
         if (i == 0 || i == chainLength - 1){
           foreach (Collider col in currentLink.GetComponentsInChildren<Collider>()){
-            col.enabled = false;
+            //col.enabled = false;
           }
         }
         currentLink.transform.position = pos;
