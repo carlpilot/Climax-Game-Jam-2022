@@ -3618,7 +3618,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '*better with freinds'
+  m_text: '*better with friends'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c91bf86918dfcbd1587ee42002cd4622, type: 2}
   m_sharedMaterial: {fileID: -4182717130779975432, guid: c91bf86918dfcbd1587ee42002cd4622, type: 2}
