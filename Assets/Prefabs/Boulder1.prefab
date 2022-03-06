@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boulder1
       objectReference: {fileID: 0}
+    - target: {fileID: 1508520109846883781, guid: 9fe1e72d67044d0118c9424e20432ad8, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6709998284305927965, guid: 9fe1e72d67044d0118c9424e20432ad8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -70,6 +74,10 @@ PrefabInstance:
     - target: {fileID: 6709998284305927965, guid: 9fe1e72d67044d0118c9424e20432ad8, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187851193763408642, guid: 9fe1e72d67044d0118c9424e20432ad8, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fe1e72d67044d0118c9424e20432ad8, type: 3}
