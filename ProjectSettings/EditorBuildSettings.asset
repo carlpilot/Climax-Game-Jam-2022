@@ -21,8 +21,8 @@ EditorBuildSettings:
     path: Assets/Scenes/IceLevel1.unity
     guid: 01735a8a493e376408af947e663a619d
   - enabled: 1
-    path: Assets/Scenes/BounceLevel1.unity
-    guid: 79c489910451a0447a32d486d3a9eac4
+    path: Assets/Scenes/BounceV2.unity
+    guid: fab5b9883aa385a468ceb9d51e83786e
   - enabled: 1
     path: Assets/Scenes/LevelMechanical1.unity
     guid: 362b9e2a2aaae6895afd401f71296c8d
