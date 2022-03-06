@@ -32,9 +32,9 @@ public class CameraController : MonoBehaviour
       if (dist < minZoom) dist = minZoom;
       var zoomMult = dist * cameraZoomMult;
       var targetPosition = target + (cameraOffset*zoomMult);
-      if (targetPosition.x < minX) targetPosition = new Vector3(minX, targetPosition.y, targetPosition.z);
-      //if (targetPosition.y < minHeight) targetPosition = new Vector3(targetPosition.x, minX, targetPosition.z);
       transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * cameraFollowSpeed);
       transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(target-transform.position), Time.deltaTime * cameraLookSpeed);
+      if (transform.position.x < minX) transform.position = new Vector3(minX, transform.position.y, transform.position.z);
+      if (transform.position.y < minHeight) transform.position = new Vector3(transform.position.x, minHeight, transform.position.z);
     }
 }

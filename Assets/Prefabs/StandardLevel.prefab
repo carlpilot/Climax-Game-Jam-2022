@@ -1606,6 +1606,8 @@ MonoBehaviour:
   cameraLookSpeed: 3
   cameraZoomMult: 0.2
   minZoom: 10
+  minX: 0
+  minHeight: 3
 --- !u!1 &3584370610955594406
 GameObject:
   m_ObjectHideFlags: 0
