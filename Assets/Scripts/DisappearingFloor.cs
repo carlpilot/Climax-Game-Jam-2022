@@ -5,6 +5,8 @@ using UnityEngine;
 public class DisappearingFloor : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public int duration = 4;
     
     private float timeRemaining;
     private float timeRemaining2;
@@ -16,23 +18,21 @@ public class DisappearingFloor : MonoBehaviour
         timeRemaining = -100;
         timeRemaining2 = -100;
         renderer = GetComponentInChildren<Renderer>();
-        Color c = renderer.material.color;
-        renderer.material.color = new Color(c.r, c.g, c.b, 50);
     }
 
     void Update() {
         if (timeRemaining > 0) {
             Color c = renderer.material.color;
             if (timeRemaining > 4) {
-                renderer.material.color = new Color(c.r, c.g, c.b, 255);
+                renderer.material.color = new Color(c.r, c.g, c.b, 1.0f);
             } else if (timeRemaining > 3) {
-                renderer.material.color = new Color(c.r, c.g, c.b, 200);
+                renderer.material.color = new Color(c.r, c.g, c.b, 0.8f);
             } else if (timeRemaining > 2) {
-                renderer.material.color = new Color(c.r, c.g, c.b, 150);
+                renderer.material.color = new Color(c.r, c.g, c.b, 0.6f);
             } else if (timeRemaining > 1) {
-                renderer.material.color = new Color(c.r, c.g, c.b, 100);
+                renderer.material.color = new Color(c.r, c.g, c.b, 0.4f);
             } else {
-                renderer.material.color = new Color(c.r, c.g, c.b, 50);
+                renderer.material.color = new Color(c.r, c.g, c.b, 0.2f);
             }
             timeRemaining -= Time.deltaTime;
         } else if (timeRemaining != -100) {
@@ -48,21 +48,21 @@ public class DisappearingFloor : MonoBehaviour
     
     private void OnCollisionEnter(Collision other) {
         if (timeRemaining == -100 && timeRemaining2 == -100) {
-            timeRemaining = 3;
+            timeRemaining = duration;
         }
     }
 
     private void disappear() {
         Color c = renderer.material.color;
-        renderer.material.color = new Color(c.r, c.g, c.b, 0);
+        renderer.material.color = new Color(c.r, c.g, c.b, 0.0f);
         gameObject.GetComponent<BoxCollider>().enabled = false;
         timeRemaining = -100;
-        timeRemaining2 = 3;
+        timeRemaining2 = duration;
     }
 
     private void reappear() {
         Color c = renderer.material.color;
-        renderer.material.color = new Color(c.r, c.g, c.b, 255);
+        renderer.material.color = new Color(c.r, c.g, c.b, 1.0f);
         gameObject.GetComponent<BoxCollider>().enabled = true;
         timeRemaining = -100;
         timeRemaining2 = -100;

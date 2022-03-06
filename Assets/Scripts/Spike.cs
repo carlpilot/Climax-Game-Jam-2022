@@ -12,7 +12,6 @@ public class Spike : MonoBehaviour {
 
     private void Awake () {
         ticksPerDamage = Mathf.FloorToInt (50.0f / damagePerSecond);
-        print (ticksPerDamage);
     }
 
     void OnTriggerEnter (Collider col) {

@@ -181,6 +181,21 @@ public class PlayerController : MonoBehaviour {
         } else{
           if (loopingStepSound.isPlaying) loopingStepSound.Stop();
         }
+
+        // Moving platforms
+        RaycastHit hit1, hit2;
+        if (Physics.Raycast (P1.transform.position, Vector3.down, out hit1, jumpMaxGroundDist, raycastLayerMask)) {
+            if (hit1.transform.parent == null) return;
+            MovingPlatform mp = hit1.transform.parent.GetComponent<MovingPlatform> () != null ? hit1.transform.parent.GetComponent<MovingPlatform> () : hit1.transform.parent.parent.GetComponent<MovingPlatform> ();
+            if (mp != null)
+                P1.MovePosition (P1.transform.position + mp.Velocity * Time.fixedDeltaTime);
+        }
+        if (Physics.Raycast (P2.transform.position, Vector3.down, out hit2, jumpMaxGroundDist, raycastLayerMask)) {
+            if (hit2.transform.parent == null) return;
+            MovingPlatform mp = hit2.transform.parent.GetComponent<MovingPlatform> () != null ? hit2.transform.parent.GetComponent<MovingPlatform> () : hit2.transform.parent.parent.GetComponent<MovingPlatform> ();
+            if (mp != null)
+                P2.MovePosition (P2.transform.position + mp.Velocity * Time.fixedDeltaTime);
+        }
     }
 
     bool canJump (Rigidbody g) {
