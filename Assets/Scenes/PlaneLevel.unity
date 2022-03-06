@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17261726, g: 0.127502, b: 0.050835326, a: 1}
+  m_IndirectSpecularColor: {r: 0.17261727, g: 0.12750198, b: 0.050835334, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 2bfe2d24694ba19439c4e8f7a65d2d55, type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: d31721dadcd597d16a7c52cf649b6505, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 03d20a4db87c8444aab4daf7e7a86522, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -17613,9 +17613,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1988663824}
     m_Modifications:
+    - target: {fileID: 5048869795743957290, guid: 374c0f753e63e36d7ae12fa933b30bdb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6706365777037697279, guid: 374c0f753e63e36d7ae12fa933b30bdb, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e2a3b9a56583d5462a0914a9853cbf0d, type: 2}
+    - target: {fileID: 6706365777037697279, guid: 374c0f753e63e36d7ae12fa933b30bdb, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: e2a3b9a56583d5462a0914a9853cbf0d, type: 2}
     - target: {fileID: 7159740755205117610, guid: 374c0f753e63e36d7ae12fa933b30bdb, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159740755205117610, guid: 374c0f753e63e36d7ae12fa933b30bdb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042843555217169929, guid: 374c0f753e63e36d7ae12fa933b30bdb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8042843555957789260, guid: 374c0f753e63e36d7ae12fa933b30bdb, type: 3}
       propertyPath: m_RootOrder
@@ -17668,6 +17688,10 @@ PrefabInstance:
     - target: {fileID: 8042843555957789263, guid: 374c0f753e63e36d7ae12fa933b30bdb, type: 3}
       propertyPath: m_Name
       value: HoleBlock Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042843555957789263, guid: 374c0f753e63e36d7ae12fa933b30bdb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 374c0f753e63e36d7ae12fa933b30bdb, type: 3}
@@ -36488,6 +36512,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1988663824}
     m_Modifications:
+    - target: {fileID: 5048869795743957290, guid: 374c0f753e63e36d7ae12fa933b30bdb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6706365777037697279, guid: 374c0f753e63e36d7ae12fa933b30bdb, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
