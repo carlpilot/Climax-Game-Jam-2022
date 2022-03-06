@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
 
     private void Start () {
         Time.timeScale = 1; // undo any pause which may have happened before scene load
+        pauseMenu.gameObject.SetActive (false);
+        gameOverScreen.gameObject.SetActive (false);
+        winScreen.gameObject.SetActive (false);
         pc = FindObjectOfType<PlayerController> ();
         he = FindObjectOfType<PlayerHealth> ();
         timer = FindObjectOfType<Timer> ();
@@ -47,6 +50,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void Pause () {
+        if (hasEnded) return; // no pausing over end or win screens
         pauseMenu.gameObject.SetActive (true);
         Time.timeScale = 0;
     }
@@ -86,7 +90,7 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel () => SceneManager.LoadScene (level + 1);
 
-    public void ToMainMenu () => SceneManager.LoadScene (0);
+    public void ToMainMenu () => SceneManager.LoadScene (SceneManager.sceneCountInBuildSettings - 1); // load last scene (level select)
 
     public void ReloadLevel () => gameOverScreen.RestartScene ();
 
