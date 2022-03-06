@@ -192,7 +192,7 @@ public class PlayerController : MonoBehaviour {
         }
         if (Physics.Raycast (P2.transform.position, Vector3.down, out hit2, jumpMaxGroundDist, raycastLayerMask)) {
             if (hit2.transform.parent == null) return;
-            MovingPlatform mp = hit2.transform.parent.GetComponent<MovingPlatform> () != null ? hit2.transform.parent.GetComponent<MovingPlatform> () : hit2.transform.parent.parent.GetComponent<MovingPlatform> ();
+            MovingPlatform mp = hit2.transform.parent.GetComponent<MovingPlatform> () != null ? hit2.transform.parent.GetComponent<MovingPlatform> () : (hit2.transform.parent.parent != null ? hit2.transform.parent.parent.GetComponent<MovingPlatform> () : null);
             if (mp != null)
                 P2.MovePosition (P2.transform.position + mp.Velocity * Time.fixedDeltaTime);
         }
