@@ -8,10 +8,11 @@ public class PushButton : MonoBehaviour
   public GameObject pushedButton;
   public bool isPushed{get; private set;}
   public bool persist;
+  List<GameObject> touchingObjects;
     // Start is called before the first frame update
     void Start()
     {
-
+      touchingObjects = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -28,13 +29,15 @@ public class PushButton : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player"){
-          Push();
+          if (touchingObjects.Count == 0) Push();
+          if (!touchingObjects.Contains(other.gameObject)) touchingObjects.Add(other.gameObject);
         }
     }
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player" && !persist){
-          UnPush();
+          if (touchingObjects.Contains(other.gameObject)) touchingObjects.Remove(other.gameObject);
+          if (touchingObjects.Count == 0) UnPush();
         }
     }
 
