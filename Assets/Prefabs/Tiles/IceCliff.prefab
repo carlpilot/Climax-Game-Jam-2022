@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3609118128343217429
+--- !u!1 &2615061263922901477
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3609118128343217426}
+  - component: {fileID: 2615061263922901482}
   m_Layer: 0
   m_Name: IceCliff
   m_TagString: Untagged
@@ -16,23 +16,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3609118128343217426
+--- !u!4 &2615061263922901482
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3609118128343217429}
+  m_GameObject: {fileID: 2615061263922901477}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.2717943, y: -39.450394, z: 75.5953}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3863121657314089358}
+  - {fileID: 2576104206049983248}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3609118128362259171
+--- !u!1 &2615061263965947495
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,8 +40,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3609118128362259168}
-  - component: {fileID: 3609118128362259169}
+  - component: {fileID: 2615061263965947492}
+  - component: {fileID: 2615061263965947493}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -49,40 +49,40 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!4 &3609118128362259168
+--- !u!4 &2615061263965947492
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3609118128362259171}
+  m_GameObject: {fileID: 2615061263965947495}
   m_LocalRotation: {x: -0.27228943, y: -0, z: -0, w: 0.9622154}
   m_LocalPosition: {x: 0, y: 2.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3863121657314089358}
+  m_Father: {fileID: 2576104206049983248}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -31.601, y: 0, z: 0}
---- !u!65 &3609118128362259169
+--- !u!65 &2615061263965947493
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3609118128362259171}
-  m_Material: {fileID: 13400000, guid: dc501df37cf29fc4281e88f36f0105d9, type: 2}
+  m_GameObject: {fileID: 2615061263965947495}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 5.5811872, y: 4.8044457, z: 2.2577093}
   m_Center: {x: 0.39318657, y: 1.1941973, z: -0.9097821}
---- !u!1001 &3609118126910635621
+--- !u!1001 &2615061263138610427
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 3609118128343217426}
+    m_TransformParent: {fileID: 2615061263922901482}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 7eb9edf3a330324519e280e99380de24, type: 3}
       propertyPath: m_RootOrder
@@ -102,15 +102,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7eb9edf3a330324519e280e99380de24, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -8.421795
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7eb9edf3a330324519e280e99380de24, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6949997
+      value: 38.755394
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7eb9edf3a330324519e280e99380de24, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -75.5953
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7eb9edf3a330324519e280e99380de24, type: 3}
       propertyPath: m_LocalRotation.w
@@ -151,7 +151,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 7eb9edf3a330324519e280e99380de24, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 318d3ffd66de92e45ba3d7e5460dbc5c, type: 2}
+      objectReference: {fileID: 2100000, guid: 46c8b4eb73d8b034c91061c5a0f2e920, type: 2}
     - target: {fileID: 919132149155446097, guid: 7eb9edf3a330324519e280e99380de24, type: 3}
       propertyPath: m_Name
       value: IceCliff
@@ -166,24 +166,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eb9edf3a330324519e280e99380de24, type: 3}
---- !u!4 &3863121657314089358 stripped
+--- !u!4 &2576104206049983248 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7eb9edf3a330324519e280e99380de24, type: 3}
-  m_PrefabInstance: {fileID: 3609118126910635621}
+  m_PrefabInstance: {fileID: 2615061263138610427}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4528158325109637940 stripped
+--- !u!1 &2921703167052734890 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7eb9edf3a330324519e280e99380de24, type: 3}
-  m_PrefabInstance: {fileID: 3609118126910635621}
+  m_PrefabInstance: {fileID: 2615061263138610427}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &3609118126910635616
+--- !u!65 &2615061263138610430
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4528158325109637940}
-  m_Material: {fileID: 0}
+  m_GameObject: {fileID: 2921703167052734890}
+  m_Material: {fileID: 13400000, guid: dc501df37cf29fc4281e88f36f0105d9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
