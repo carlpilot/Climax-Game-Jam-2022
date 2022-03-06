@@ -6,33 +6,25 @@ public class Icicle : MonoBehaviour
 {
     PlayerController pc;
     PlayerHealth he;
-    private float x;
-    private float y;
-    private float z;
 
     // Start is called before the first frame update
     void Start() {
         pc = FindObjectOfType<PlayerController> ();
         he = FindObjectOfType<PlayerHealth> ();
-        Vector3 v = transform.position;
-        this.x = v.x;
-        this.y = v.y;
-        this.z = v.z;
     }
 
 
     void OnCollisionEnter(Collision other) {
-        /*
-        if (other.GetComponent<Rigidbody> () == null) return;
-        if (other.GetComponent<Rigidbody> () == pc.P1) {
-            pc.toggle_burn(1, true);
-        } else if (other.GetComponent<Rigidbody>() == pc.P2) {
-            pc.toggle_burn(2, true);
-        }*/
+        if (other.collider.GetComponent<Rigidbody> () == pc.P1) {
+            he.health1 -= 2;
+        } else if (other.collider.GetComponent<Rigidbody>() == pc.P2) {
+            he.health2 -= 2;
+        } else if (other.gameObject.tag == "Chain") {
+            Destroy(other.gameObject);
+            FindObjectOfType<GameManager>().Lose();
+        }
 
         // Destroy icicle and respawn
-        GameObject instantiatedObj = Instantiate(this.gameObject);
-        Destroy(this.gameObject);
-        instantiatedObj.transform.position = new Vector3(this.x, this.y, this.z);
+        Destroy(gameObject);
     }
 }
