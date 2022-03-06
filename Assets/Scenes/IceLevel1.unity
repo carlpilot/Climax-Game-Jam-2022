@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.12107873, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 8c59111b17aa13b4b9674aa7d34505c2, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 8f34799b6f57b927d8ad88812c2f611e, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 03d20a4db87c8444aab4daf7e7a86522, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6983,6 +6983,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockFloor (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 777957316984845837, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3219981371813522285, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -7043,6 +7047,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b3d537caf3264d7bfb8fc5b246bf01f7, type: 2}
+    - target: {fileID: 8867905536930066443, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
 --- !u!1001 &829066641
@@ -7622,6 +7630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockFloor (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 777957316984845837, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3219981371813522285, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -7682,6 +7694,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b3d537caf3264d7bfb8fc5b246bf01f7, type: 2}
+    - target: {fileID: 8867905536930066443, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
 --- !u!1001 &888400979
@@ -7752,6 +7768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockFloor
       objectReference: {fileID: 0}
+    - target: {fileID: 777957316984845837, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3219981371813522285, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -7812,6 +7832,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b3d537caf3264d7bfb8fc5b246bf01f7, type: 2}
+    - target: {fileID: 8867905536930066443, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
 --- !u!4 &899766721 stripped
@@ -8096,6 +8120,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockFloor (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 777957316984845837, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3219981371813522285, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -8156,6 +8184,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b3d537caf3264d7bfb8fc5b246bf01f7, type: 2}
+    - target: {fileID: 8867905536930066443, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
 --- !u!1001 &949488256
@@ -8365,6 +8397,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockFloor (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 777957316984845837, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3219981371813522285, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -8425,6 +8461,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b3d537caf3264d7bfb8fc5b246bf01f7, type: 2}
+    - target: {fileID: 8867905536930066443, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
 --- !u!1 &1015152944
@@ -9338,6 +9378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockFloor (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 777957316984845837, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3219981371813522285, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -9398,6 +9442,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b3d537caf3264d7bfb8fc5b246bf01f7, type: 2}
+    - target: {fileID: 8867905536930066443, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eb951664eace3c47a35e563c9cb64c7, type: 3}
 --- !u!1001 &1110489410
@@ -11037,7 +11085,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -15190,7 +15238,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -16077,7 +16125,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -16192,7 +16240,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -16312,7 +16360,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -16900,7 +16948,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
