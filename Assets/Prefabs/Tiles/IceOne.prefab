@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5942923158030386013}
+  - component: {fileID: -2898085995625469053}
   m_Layer: 0
   m_Name: IceOne
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5942923158030386014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.5060883, y: 37.417435, z: -71.46756}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32,6 +33,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2898085995625469053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5942923158030386014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88ffe217ef5b634b85b689d380fd8a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
 --- !u!1001 &5942923157913533000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57,15 +71,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b9360f48ad7c93bc391c6857dfc7bd2d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.5060883
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b9360f48ad7c93bc391c6857dfc7bd2d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -38.112434
+      value: -0.695
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b9360f48ad7c93bc391c6857dfc7bd2d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 71.46756
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b9360f48ad7c93bc391c6857dfc7bd2d, type: 3}
       propertyPath: m_LocalRotation.w

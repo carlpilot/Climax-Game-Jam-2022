@@ -90,22 +90,25 @@ public class PlayerController : MonoBehaviour {
 
         // Vertical motion
         if (enableJumping) {
-            if (Input.GetKey (Key_P1_Jump) && canJump (P1)){
+            if (Input.GetKey (Key_P1_Jump) && canJump (P1)) {
                 P1.velocity += Vector3.up * (jumpVelocity - P1.velocity.y) * JumpBoostP1;
-                jumpSound.Play();
-              }
-            if (Input.GetKey (Key_P2_Jump) && canJump (P2)){
+                jumpSound.Play ();
+            }
+            if (Input.GetKey (Key_P2_Jump) && canJump (P2)) {
                 P2.velocity += Vector3.up * (jumpVelocity - P2.velocity.y) * JumpBoostP2;
-                jumpSound.Play();
-              }
+                jumpSound.Play ();
+            }
         }
 
-        // Crouch gravity
-        if (Input.GetKey (Key_P1_Crouch))
+        // Crouch gravity and bounce
+        if (Input.GetKey (Key_P1_Crouch)) {
             P1.AddForce (Vector3.up * P1.mass * -9.81f * (crouchGravityFactor - 1.0f));
-
-        if (Input.GetKey (Key_P2_Crouch))
+            P1.GetComponent<Collider> ().material.bounceCombine = PhysicMaterialCombine.Multiply;
+        } else P1.GetComponent<Collider> ().material.bounceCombine = PhysicMaterialCombine.Maximum;
+        if (Input.GetKey (Key_P2_Crouch)) {
             P2.AddForce (Vector3.up * P2.mass * -9.81f * (crouchGravityFactor - 1.0f));
+            P2.GetComponent<Collider> ().material.bounceCombine = PhysicMaterialCombine.Multiply;
+        } else P2.GetComponent<Collider> ().material.bounceCombine = PhysicMaterialCombine.Maximum;
 
         // Righting moment
         if (enableRighting) {
