@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 194296341}
   - component: {fileID: 194296340}
   m_Layer: 5
-  m_Name: Play
+  m_Name: text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -325,7 +325,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: < Back
+  m_text: < Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c91bf86918dfcbd1587ee42002cd4622, type: 2}
   m_sharedMaterial: {fileID: -4182717130779975432, guid: c91bf86918dfcbd1587ee42002cd4622, type: 2}
@@ -1543,8 +1543,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icons:
   - {fileID: 2800000, guid: fa917cb26f565954ca35f086dfe651f9, type: 3}
-  - {fileID: 2800000, guid: 94901d769c5b71f4bb4ffb33b56ac809, type: 3}
-  - {fileID: 2800000, guid: a4ca7f959dd627f42972c2e61936e4f8, type: 3}
+  - {fileID: 2800000, guid: c4d84dad8416e0b4b831c81789ef36ef, type: 3}
+  - {fileID: 2800000, guid: 1bdcb3c0f7bfe3f44b02d232c1fbb6be, type: 3}
 --- !u!4 &905065536
 Transform:
   m_ObjectHideFlags: 0
@@ -2880,7 +2880,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 25, y: -25}
-  m_SizeDelta: {x: 400, y: 100}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1610595855
 MonoBehaviour:
