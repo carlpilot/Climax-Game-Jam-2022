@@ -25,7 +25,7 @@ public class PlaneController : MonoBehaviour
         }   
 
         if (Input.GetKeyUp(KeyCode.Space)){
-            zoomToggle = false;
+            zoomToggle = true;
         }
 
         // Actual zoom
