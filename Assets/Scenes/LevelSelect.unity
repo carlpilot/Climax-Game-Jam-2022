@@ -1543,6 +1543,7 @@ MonoBehaviour:
   icons:
   - {fileID: 2800000, guid: fa917cb26f565954ca35f086dfe651f9, type: 3}
   - {fileID: 2800000, guid: 94901d769c5b71f4bb4ffb33b56ac809, type: 3}
+  - {fileID: 2800000, guid: a4ca7f959dd627f42972c2e61936e4f8, type: 3}
 --- !u!4 &905065536
 Transform:
   m_ObjectHideFlags: 0
