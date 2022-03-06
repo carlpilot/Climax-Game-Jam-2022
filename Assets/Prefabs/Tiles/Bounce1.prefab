@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7389269053318021801}
   - component: {fileID: 7502262274440715018}
+  - component: {fileID: -3053814313327498261}
   m_Layer: 0
   m_Name: Bounce1
   m_TagString: Untagged
@@ -46,6 +47,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 1, z: 3}
   m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!114 &-3053814313327498261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7389269053318021798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88ffe217ef5b634b85b689d380fd8a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 4
 --- !u!1001 &7389269054053566608
 PrefabInstance:
   m_ObjectHideFlags: 0
