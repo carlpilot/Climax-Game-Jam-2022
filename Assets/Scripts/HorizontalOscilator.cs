@@ -7,6 +7,8 @@ public class HorizontalOscilator : MonoBehaviour
   public float maxX = 5;
   Vector3 startPos;
   float dir = 1;
+
+  public Vector3 direction = new Vector3(1, 0, 0);
   public float speed = 1f;
   public PushButton button;
     // Start is called before the first frame update
@@ -19,12 +21,12 @@ public class HorizontalOscilator : MonoBehaviour
     void Update()
     {
       if (button.isPushed){
-        if (transform.position.x > startPos.x + maxX){
+        if ((transform.position - (startPos + (maxX * direction))).magnitude < 0.1f){
           dir = -1;
-        } else if (transform.position.x < startPos.x){
+        } else if ((transform.position - startPos).magnitude < 0.1f){
           dir = 1;
         }
-        transform.Translate(new Vector3(dir*speed*Time.deltaTime, 0, 0));
+        transform.Translate(direction * dir * speed * Time.deltaTime);
       }
     }
 }
