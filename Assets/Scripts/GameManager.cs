@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
         timer.StopTime ();
         if (!timer.extended) timer.ToggleTimerExtended (false);
         pc.enableMovement = false;
+        pc.enableJumping = false;
     }
 
     public void NextLevel () => SceneManager.LoadScene (level + 1);
