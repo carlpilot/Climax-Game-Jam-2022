@@ -11179,6 +11179,18 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.11
       objectReference: {fileID: 0}
@@ -11217,6 +11229,10 @@ PrefabInstance:
     - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
@@ -13280,6 +13296,18 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 73.26
       objectReference: {fileID: 0}
@@ -13318,6 +13346,10 @@ PrefabInstance:
     - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
@@ -18060,6 +18092,18 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 79.53
       objectReference: {fileID: 0}
@@ -18098,6 +18142,10 @@ PrefabInstance:
     - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615040019474340830, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8883210308638763229, guid: 106ae24ff0313a344a5e41fa177f981e, type: 3}
       propertyPath: m_Material
