@@ -8091,42 +8091,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 52146901438596765, guid: 2e77da73fe2f2ec46b73cf23457092e9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.214
-      objectReference: {fileID: 0}
-    - target: {fileID: 52146901438596765, guid: 2e77da73fe2f2ec46b73cf23457092e9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.971
-      objectReference: {fileID: 0}
-    - target: {fileID: 52146901438596765, guid: 2e77da73fe2f2ec46b73cf23457092e9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1525412822286434372, guid: 2e77da73fe2f2ec46b73cf23457092e9, type: 3}
-      propertyPath: m_Range
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1525412822286434372, guid: 2e77da73fe2f2ec46b73cf23457092e9, type: 3}
-      propertyPath: m_Color.b
-      value: 0.7018868
-      objectReference: {fileID: 0}
-    - target: {fileID: 1525412822286434372, guid: 2e77da73fe2f2ec46b73cf23457092e9, type: 3}
-      propertyPath: m_Color.g
-      value: 0.843731
-      objectReference: {fileID: 0}
-    - target: {fileID: 1525412822286434372, guid: 2e77da73fe2f2ec46b73cf23457092e9, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1525412822286434372, guid: 2e77da73fe2f2ec46b73cf23457092e9, type: 3}
-      propertyPath: m_Intensity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1525412822286434372, guid: 2e77da73fe2f2ec46b73cf23457092e9, type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4936658534208342848, guid: 2e77da73fe2f2ec46b73cf23457092e9, type: 3}
       propertyPath: m_Name
       value: LavaPipe
