@@ -1,4 +1,4 @@
-![Logo](https://github.com/carlpilot/Climax-Game-Jam-2022/blob/737e582b784861fbdab2923fe8fca47232378d24/Assets/Art/itch/thumb.png)
+![Logo](https://github.com/carlpilot/Climax-Game-Jam-2022/blob/737e582b784861fbdab2923fe8fca47232378d24/Assets/Art/itch/splash.png)
 
 <i>by <b>The Weakest Links</b>: Daniel Battersby, Carl Bertolino, James Harcourt, Niall Morrison and Josh Pattman</i>
 
