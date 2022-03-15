@@ -31,6 +31,7 @@ public class PlaneController : MonoBehaviour
         // Actual zoom
         if (zoomToggle){
             zoom();
+            FindObjectOfType<GameManager> ().Win ();
         }
         
     }
