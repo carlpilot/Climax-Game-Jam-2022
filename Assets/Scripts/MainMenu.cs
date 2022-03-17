@@ -8,9 +8,9 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
 
-    static string[] adjectives = { "steamy", "spicy", "salty", "delectable", "many", "tinned", "refried", "hot", "cold"};
-    static string[] typesOfBean = { "baked", "runner", "kidney", "green", "black", "white", "cowboy", "adzuki", "edamame", "lima" };
-    static string[] beanWords = { "bean", "beans", "beans", "beans", "frijoles", "haricot", "beansontoast"};
+    static string[] adjectives = { "steamy", "spicy", "salty", "delectable", "tinned", "hot", "cold", "fresh", "baked", "boiled", "fried"};
+    static string[] typesOfBean = { "baked", "runner", "kidney", "green", "black", "white", "cowboy", "adzuki", "edamame", "lima", "red", "moong", "pinto", "garbanzo", "soy", "navy", "butter" };
+    static string[] beanWords = { "bean", "beans", "beans", "beans", "frijoles", "haricots", "beansontoast"};
 
     public GameObject player1;
     public GameObject player2;
@@ -91,5 +91,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void SaveUsername () => PlayerPrefs.SetString ("Username", usernameInput.text.ToUpper());
+
+    public void GoToCredits () => SceneManager.LoadScene ("Credits");
 
 }
