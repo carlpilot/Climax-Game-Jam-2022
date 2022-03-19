@@ -12,19 +12,14 @@ public class PlaneController : MonoBehaviour
 
     public Vector3 zoomDirection;
     private bool zoomToggle;
-    
+    public float activationDist = 5.0f;
+    public LayerMask activeLM;
 
     // Update is called once per frame
     void Update()
     {   
         // Zoom toggle
-        if (isActive){
-            if (Input.GetKeyDown(KeyCode.Space)){
-                zoomToggle = true;
-            }
-        }   
-
-        if (Input.GetKeyUp(KeyCode.Space)){
+        if (Input.GetKeyDown (KeyCode.Space) && Physics.OverlapSphere(transform.position, activationDist, activeLM).Length > 0){
             zoomToggle = true;
         }
 
@@ -34,18 +29,6 @@ public class PlaneController : MonoBehaviour
             FindObjectOfType<GameManager> ().Win ();
         }
         
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {   
-        Debug.Log("Touch");
-        isActive = true;
-    }
-
-    private void OnTriggerExit(Collider other){
-        Debug.Log("Leave");
-        isActive = false;
     }
 
     private void zoom(){

@@ -43707,6 +43707,10 @@ PrefabInstance:
       value: Plane
       objectReference: {fileID: 0}
     - target: {fileID: 3513648798343485647, guid: 1048fc445a4bbd442a98832a9648c24c, type: 3}
+      propertyPath: activeLM.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513648798343485647, guid: 1048fc445a4bbd442a98832a9648c24c, type: 3}
       propertyPath: zoomDirection.x
       value: 80
       objectReference: {fileID: 0}
