@@ -13,9 +13,11 @@ public class VersionChecker : MonoBehaviour {
     public TMP_Text newVersionMessage;
     public TMP_Text downloadPrompt;
     public TMP_Text versionDisplay;
+    public TMP_Text staticVersionDisplay;
 
     private void Awake () {
         CurrentVersion = Application.version;
+        staticVersionDisplay.text = "Version " + CurrentVersion;
     }
 
     private void Start () {
