@@ -5770,7 +5770,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1271897089}
         m_TargetAssemblyTypeName: setSoundVolume, Assembly-CSharp
         m_MethodName: SetLevel
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5791,7 +5791,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f568bbde56f79b4091f2a379a76037c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mode: 0
   mixer: {fileID: 24100000, guid: 5bc1795b642fe15488689cdce4ac4d71, type: 2}
+  SaveToPrefs: 1
+  PlayerPrefName: SoundVolume
 --- !u!1 &1295578721
 GameObject:
   m_ObjectHideFlags: 0
@@ -8207,9 +8210,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1818383332}
-        m_TargetAssemblyTypeName: setMusicVolume, Assembly-CSharp
+        m_TargetAssemblyTypeName: setSoundVolume, Assembly-CSharp
         m_MethodName: SetLevel
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8227,10 +8230,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1818383329}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6115e3ef316e134469a78f1453aa6b75, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f568bbde56f79b4091f2a379a76037c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mode: 1
   mixer: {fileID: 24100000, guid: 5bc1795b642fe15488689cdce4ac4d71, type: 2}
+  SaveToPrefs: 1
+  PlayerPrefName: MusicVolume
 --- !u!1 &1819867879
 GameObject:
   m_ObjectHideFlags: 0
